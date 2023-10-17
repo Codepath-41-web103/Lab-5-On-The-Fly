@@ -1,79 +1,67 @@
 import { pool } from "../config/database.js";
 
-const createDestination = async (req, res) => {
+const createTripDestination = async (request, response) => {
   try {
-    const { destination, description, city, country, img_url, flag_img_url } =
-      req.body;
-
+    const { trip_id, destination_id } = request.body;
     const results = await pool.query(
-      `INSERT INTO destinations (destination, description, city, country, img_url, flag_img_url)
-      VALUES($1, $2, $3, $4, $5, $6)
-      RETURNING *`,
-      [destination, description, city, country, img_url, flag_img_url],
+      "INSERT INTO trips_destinations (trip_id, destination_id) VALUES($1, $2) RETURNING *",
+      [trip_id, destination_id],
     );
-    res.status(201).json(results.rows[0]);
+
+    response.status(201).json(results.rows[0]);
   } catch (error) {
-    res.status(409).json({ error: error.message });
+    response.status(409).json({ error: error.message });
   }
 };
 
-const getDestinations = async (req, res) => {
+const getTripsDestinations = async (request, response) => {
   try {
     const results = await pool.query(
-      "SELECT * FROM destinations ORDER BY id ASC",
+      "SELECT * FROM trips_destinations ORDER BY trip_id ASC",
     );
-    res.status(200).json(results.rows);
+    response.status(200).json(results.rows);
   } catch (error) {
-    res.status(409).json({ error: error.message });
+    response.status(409).json({ error: error.message });
   }
 };
 
-const getDestination = async (req, res) => {
+const getAllTrips = async (request, response) => {
   try {
-    const id = parseInt(req.params.id);
-    const results = await pool.query(
-      "SELECT * FROM destinations WHERE id = $1",
-      [id],
-    );
-    res.status(200).json(results.rows[0]);
+    const query = `
+      SELECT *
+      FROM trips
+      INNER JOIN trips_destinations ON trips_destinations.trip_id = trips.id
+      WHERE trips_destinations.destination_id = $1
+    `;
+
+    const destination_id = parseInt(request.params.destination_id);
+    const results = await pool.query(query, [destination_id]);
+    response.status(200).json(results.rows);
   } catch (error) {
-    res.status(409).json({ error: error.message });
+    response.status(409).json({ error: error.message });
   }
 };
 
-const updateDestination = async (req, res) => {
+const getAllDestinations = async (request, response) => {
   try {
-    const id = parseInt(req.params.id);
-    const { destination, description, city, country, img_url, flag_img_url } =
-      req.body;
-    const results = await pool.query(
-      `UPDATE destinations
-      SET destination = $1, description = $2, city = $3, country = $4, img_url = $5, flag_img_url = $6
-      WHERE id = $7`,
-      [destination, description, city, country, img_url, flag_img_url, id],
-    );
-    res.status(200).json(results.rows[0]);
-  } catch (error) {
-    res.status(409).json({ error: error.message });
-  }
-};
+    const query = `
+      SELECT *
+      FROM destinations
+      INNER JOIN trips_destinations ON trips_destinations.destination_id = destinations.id
+      WHERE trips_destinations.trip_id = $1
+    `;
 
-const deleteDestination = async (req, res) => {
-  try {
-    const id = parseInt(req.params.id);
-    const results = await pool.query("DELETE FROM destinations WHERE id = $1", [
-      id,
-    ]);
-    res.status(200).json(results.rows[0]);
+    const trip_id = parseInt(request.params.trip_id);
+    const results = await pool.query(query, [trip_id]);
+    response.status(200).json(results.rows);
   } catch (error) {
-    res.status(409).json({ error: error.message });
+    response.status(409).json({ error: error.message });
   }
 };
 
 export default {
-  createDestination,
-  getDestinations,
-  getDestination,
-  updateDestination,
-  deleteDestination,
+  createTripDestination,
+  getTripsDestinations,
+  getAllTrips,
+  getAllDestinations,
 };
