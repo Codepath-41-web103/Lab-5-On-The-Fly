@@ -4,7 +4,7 @@
 
 - [ ] Complete all of the baseline features. These features use the core skills developed in this course, including designing a database schema, creating a server, and connecting a frontend to the server.
 
-- [ ] The web app includes an Express backend app and a React frontend app.
+- [x] The web app includes an Express backend app and a React frontend app.
 
 - [ ] The web app includes dynamic routes for both frontend and backend apps.
 
@@ -12,15 +12,15 @@
 
 ## Backend Features
 
-- [ ] The web app implements at least one of each of the following database relationships in Postgres:
-- [ ] One-to-many
-- [ ] Many-to-many with a join table
+- [x] The web app implements at least one of each of the following database relationships in Postgres:
+- [x] One-to-many
+- [x] Many-to-many with a join table
 
-- [ ] The web app implements a well-designed RESTful API that:
-- [ ] Can respond to at least one of each type of request: GET, POST, PATCH, and DELETE.
-- [ ] Implements proper naming conventions for routes.
+- [x] The web app implements a well-designed RESTful API that:
+- [x] Can respond to at least one of each type of request: GET, POST, PATCH, and DELETE.
+- [x] Implements proper naming conventions for routes.
 
-- [ ] The web app implements the ability to reset the database to its default state.
+- [x] The web app implements the ability to reset the database to its default state.
 
 ## Frontend Features
 
