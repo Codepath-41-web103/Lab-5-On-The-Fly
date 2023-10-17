@@ -1,11 +1,11 @@
-import pg from 'pg'
-
+import pg from "pg";
+import "./dotenv.js";
 const config = {
-    user: process.env.PGUSER,
-    password: process.env.PGPASSWORD,
-    host: process.env.PGHOST,
-    port: process.env.PGPORT,
-    database: process.env.PGDATABASE
-}
+  user: "postgres",
+  password: "bWp2BkLWyiSks23PdG6y",
+  host: "containers-us-west-170.railway.app",
+  port: 6389,
+  database: "railway",
+};
 
-export const pool = new pg.Pool(config)
+export const pool = new pg.Pool(config);

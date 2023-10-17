@@ -1,34 +1,30 @@
-import express from 'express'
-import path from 'path'
-import favicon from 'serve-favicon'
-import dotenv from 'dotenv'
+import express from "express";
+import cors from "cors";
+import tripRoutes from "./routes/trips.js";
+import activityRoutes from "./routes/activities.js";
+import destinationRoutes from "./routes/destinations.js";
+import tripDestinationRoutes from "./routes/trips_destinations.js";
 
-import router from './config/routes.js'
+const app = express();
 
-dotenv.config()
+app.use(express.json());
+app.use(cors());
 
-const PORT = process.env.PORT || 3000
+app.get("/", (req, res) => {
+  res
+    .status(200)
+    .send(
+      '<h1 style="text-align: center; margin-top: 50px;">✈️ On the Fly API</h1>',
+    );
+});
 
-const app = express()
+app.use("/api/trips", tripRoutes);
+app.use("/api/activities", activityRoutes);
+app.use("/api/destinations", destinationRoutes);
+app.use("/api/trips-destinations", tripDestinationRoutes);
 
-app.use(express.json())
-
-if (process.env.NODE_ENV === 'development') {
-    // app.use(favicon(path.resolve('../', 'client', 'public', 'party.png')))
-}
-else if (process.env.NODE_ENV === 'production') {
-    // app.use(favicon(path.resolve('public', 'party.png')))
-    app.use(express.static('public'))
-}
-
-app.use('/api', router)
-
-if (process.env.NODE_ENV === 'production') {
-    app.get('/*', (_, res) =>
-        res.sendFile(path.resolve('public', 'index.html'))
-    )
-}
+const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
-    console.log(`server listening on http://localhost:${PORT}`)
-})
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
+});
