@@ -1,0 +1,77 @@
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex: $values;
+  -webkit-flex: $values;
+  -ms-flex: $values;
+  flex: $values;
+}
+
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;
+  -moz-box-ordinal-group: $val;
+  -ms-flex-order: $val;
+  -webkit-order: $val;
+  order: $val;
+}
+
+.wrapper {
+  @include flexbox();
+}
+
+.item {
+  @include flex(1 200px);
+  @include order(2);
+}
+
+:root {
+  --color1: #000  
+  --color2: #000 
+  --color3: #000
+  --color4: #000
+  --color5: #000
+  --color6: #000
+  --color7: #000
+}
+
+/* Pink Light scheme (Default) */
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  --primary: var(--color1);
+  --primary-hover: var(--color2);
+  --primary-focus: var(--color3);
+  --primary-inverse: var(--color7);
+}
+
+/* Pink Dark scheme (Auto) */
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --primary: var(--color4);
+    --primary-hover: var(--color5);
+    --primary-focus: var(--color6);
+    --primary-inverse: var(--color7);
+  }
+}
+
+/* Pink Dark scheme (Forced) */
+[data-theme="dark"] {
+  --primary: var(--color4);
+  --primary-hover: var(--color5);
+  --primary-focus: var(--color6);
+  --primary-inverse: var(--color7);
+}
+
+/* Pink (Common styles) */
+:root {
+  --form-element-active-border-color: var(--primary);
+  --form-element-focus-color: var(--primary-focus);
+  --switch-color: var(--primary-inverse);
+  --switch-checked-background-color: var(--primary);
+}
