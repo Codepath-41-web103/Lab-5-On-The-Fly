@@ -54,8 +54,6 @@ Users can have a dynamic price estimate base on the price of activities they are
 
 ## Installation Instructions
 
-````npm install
-    npm run dev ```
-
-[instructions go here]
-````
+```npm install
+    npm run dev
+```
