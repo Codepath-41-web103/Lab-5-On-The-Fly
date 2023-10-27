@@ -13,5 +13,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <App />
       </BrowserRouter>
     </Flowbite>
-    </React.StrictMode>,
+  </React.StrictMode>,
 )

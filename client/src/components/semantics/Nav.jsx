@@ -1,9 +1,16 @@
 import React from 'react'
-
-function Nav() {
+import PropTypes from 'prop-types'
+import { cn } from '../../lib/utils'
+import './Nav.scss'
+export default function Nav({ className, children, style }) {
   return (
-    <div>Nav</div>
+    <nav className={cn('', className)} style={style}>
+      {children}
+    </nav>
   )
 }
-
-export default Nav
+Nav.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
+  style: PropTypes.object,
+}
