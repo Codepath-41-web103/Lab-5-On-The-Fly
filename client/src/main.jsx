@@ -7,11 +7,11 @@ import { DarkThemeToggle, Flowbite } from 'flowbite-react';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Flowbite>
+    {/* <Flowbite> */}
       <BrowserRouter>
-        <DarkThemeToggle />
+        {/* <DarkThemeToggle /> */}
         <App />
       </BrowserRouter>
-    </Flowbite>
+    {/* </Flowbite> */}
   </React.StrictMode>,
 )

@@ -5,6 +5,8 @@ const TripDetails =  lazy(() => import('./trips/TripDetails'));
 const CreateDestination =  lazy(() => import('./destinations/CreateDestination'));
 const CreateActivity =  lazy(() => import('./activities/CreateActivity'));
 const AddToTrip =  lazy(() => import('./trips/AddToTrip'));
+const ReadTrips =  lazy(() => import('./trips/ReadTrips'));
+const CreateTrip =  lazy(() => import('./trips/CreateTrip'));
 export {
   EditTrip,
   ReadDestinations,
@@ -12,4 +14,6 @@ export {
   CreateDestination,
   CreateActivity,
   AddToTrip,
+  ReadTrips,
+  CreateTrip
 };

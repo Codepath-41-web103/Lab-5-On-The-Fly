@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect, Fragment } from 'react';
-import Card from '../components/Card';
+import { Card } from '../../components/main/index';
 import PropTypes from 'prop-types'
 
 

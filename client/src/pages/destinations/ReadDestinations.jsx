@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect, Fragment } from 'react';
-import DestinationCard from '../components/DestinationCard';
+import DestinationCard from '../../components/main/DestinationCard';
 
 
 const ReadDestinations = (props) => {

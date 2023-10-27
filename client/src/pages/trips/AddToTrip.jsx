@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect, Fragment } from 'react';
-import AddTripOptionCard from '../components/AddTripOptionCard';
+import AddTripOptionCard from '../../components/main/AddTripOptionCard';
 import PropTypes from 'prop-types'
 
 const AddToTrip = (props) => {

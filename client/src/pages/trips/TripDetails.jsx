@@ -1,8 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, {useState, useEffect, Fragment} from 'react';
 import { Link, useParams } from 'react-router-dom';
-import ActivityBtn from '../components/ActivityBtn';
-import DestinationBtn from '../components/DestinationBtn';
+import { DestinationBtn, ActivityBtn } from '../../components/main/index';
 import './TripDetails.scss'
 import PropTypes from 'prop-types'
 
