@@ -6,7 +6,7 @@
 
 - [x] The web app includes an Express backend app and a React frontend app.
 
-- [ ] The web app includes dynamic routes for both frontend and backend apps.
+- [x] The web app includes dynamic routes for both frontend and backend apps.
 
 - [ ] The web app is deployed on Railway with all pages and features working.
 
