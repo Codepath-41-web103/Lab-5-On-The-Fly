@@ -67,7 +67,15 @@ const updateTrip = async (req, res) => {
       ],
     );
 
-    res.status(200).json(results.rows);
+    res.status(200).json({
+      title,
+      description,
+      img_url,
+      num_days,
+      start_date,
+      end_date,
+      total_cost,
+    });
   } catch (error) {
     res.status(409).json({ error: error.message });
   }
