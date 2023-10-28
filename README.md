@@ -22,7 +22,7 @@ Frontend: React
 
 Backend: PostgreSQL
 
-## Features
+- [x] The web app implements at least one interaction that the user can initiate and complete on the same page without navigating to a new page.
 
 ### [Trips]
 
