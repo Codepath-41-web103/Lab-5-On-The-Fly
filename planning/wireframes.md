@@ -6,16 +6,14 @@ Reference the Creating an Entity Relationship Diagram final project guide in the
 
 [👉🏾👉🏾👉🏾 List the pages you expect to have in your app, with a ⭐ next to pages you have wireframed]
 
-## Wireframe 1: [page title]
+## Wireframe 1: Destination
 
-[👉🏾👉🏾👉🏾 include wireframe 1]
+<img src='/public/Destinations.png' title='Destination Screenshot' width='' alt='Destination Screenshot' />
 
-## Wireframe 2: [page title]
+## Wireframe 2: Exlore
 
-[👉🏾👉🏾👉🏾 include wireframe 2]
+<img src='/public/Explore.png' title='Exlore Screenshot' width='' alt='Trips Screenshot' />
 
-## Wireframe 3: [page title]
+## Wireframe 3: Trips
 
-[👉🏾👉🏾👉🏾 include wireframe 3]
-
-[👉🏾👉🏾👉🏾 include more wireframes as desired]
+<img src='/public/Trips.png' title='Trips Screenshot' width='' alt='Trips Screenshot' />
