@@ -42,7 +42,7 @@ const EditTrip = ({data}) => {
             body: JSON.stringify(post)
         }
         
-        await fetch('/api/trips/' + id, options)
+        await fetch(`/api/trips/${id}`, options)
         window.location.href = '/'
     }
 
