@@ -2,9 +2,9 @@ import pg from "pg";
 import "./dotenv.js";
 const config = {
   user: "postgres",
-  password: "bWp2BkLWyiSks23PdG6y",
-  host: "containers-us-west-170.railway.app",
-  port: 6389,
+  password: "*BC32dDaAca245eg2FfA5**A16fCE*f*",
+  host: "viaduct.proxy.rlwy.net",
+  port: 31077,
   database: "railway",
 };
 
