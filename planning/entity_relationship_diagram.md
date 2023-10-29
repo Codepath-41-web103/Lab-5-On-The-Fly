@@ -10,48 +10,46 @@ Reference the Creating an Entity Relationship Diagram final project guide in the
 
 [👉🏾👉🏾👉🏾 Include an image or images of the diagram below. You may also wish to use the following markdown syntax to outline each table, as per your preference.]
 
-| Activities | Type    | List of Activities   |
-| ---------- | ------- | -------------------- |
-| id         | integer | primary key          |
-| trip_id    | integer | id of the activity   |
-| activity   | string  | name of the activity |
-| num_votes  | integer | number of votes      |
+| Chats        | Type        | List of Activities            |
+| ------------ | ----------- | ----------------------------- |
+| created_at   | Date        | the time the chat was created |
+| recepient_id | Integer     | the id of the recepient       |
+| sender_id    | Integer     | the id of the sender          |
+| chat_id      | Primary Key | the id of the chat            |
 
-| Destinations | Type    | List of Destinations           |
-| ------------ | ------- | ------------------------------ |
-| id           | integer | primary key                    |
-| destination  | string  | name of destination            |
-| description  | string  | description of the destination |
-| city         | string  | name of city                   |
-| country      | string  | name of country                |
-| img_url      | string  | image of destination           |
-| flag_img_url | string  | image of country flag          |
+| Message     | Type    | List of Destinations                 |
+| ----------- | ------- | ------------------------------------ |
+| id          | Integer | Primary Key                          |
+| chat_id     | Integer | Foreign Key                          |
+| text        | String  | content of the message               |
+| sender_id   | Integer | the id of the sender                 |
+| img_url     | String? | image of with the message (Optional) |
+| profile_url | String  | image of country flag                |
 
-| Trips       | Type    | List of Trips          |
-| ----------- | ------- | ---------------------- |
-| id          | integer | primary key            |
-| title       | string  | name of trip           |
-| description | string  | description of trip    |
-| img_url     | string  | image of trip          |
-| num_days    | integer | number of days staying |
-| start_date  | Date    | start date of the trip |
-| end_date    | Date    | end date of the trip   |
-| total_cost  | string  | total cost of trip     |
+| Users      | Type    | List of Users            |
+| ---------- | ------- | ------------------------ |
+| id         | Integer | primary key              |
+| name       | String  | name of user             |
+| email      | String  | email of user            |
+| avatar_url | String  | image of user            |
+| password   | String  | password of user account |
 
-| Trips_Destinations | Type    | List of Trips by Destination |
-| ------------------ | ------- | ---------------------------- |
-| trip_id            | integer | id of the trip               |
-| destination_id     | integer | id of the destination        |
+| UserChats | Type    | List of User Chats |
+| --------- | ------- | ------------------ |
+| user_id   | Integer | Foriegn Key        |
+| chat_id   | Integer | Foriegn Key        |
 
-| Trips_Users | Type    | List of Trips by User |
-| ----------- | ------- | --------------------- |
-| trip_id     | integer | id of the trip        |
-| user_id     | integer | id of the user        |
+## One-to-Many Relationships
 
-| Users       | Type    | List of Users    |
-| ----------- | ------- | ---------------- |
-| id          | integer | primary key      |
-| githubid    | integer | user's github id |
-| username    | string  | name of the user |
-| avatarurl   | string  | image of user    |
-| accesstoken | string  | user token       |
+- **Chats to Messages:**
+  - One chat (identified by `chat_id` in the "Chats" table) can have multiple messages.
+  - This is represented by the foreign key `chat_id` in the "Message" table.
+- **Users to UserChats:**
+  - One user (identified by `user_id` in the "Users" table) can be associated with multiple UserChats.
+  - This is represented by the foreign key `user_id` in the "UserChats" table.
+
+## Many-to-Many Relationships
+
+- **Users to Chats (Indirectly through UserChats):**
+  - Users can participate in multiple conversations, and each conversation can have multiple participants.
+  - This many-to-many relationship is established through the "UserChats" table, where each row represents a user's association with a specific conversation (`chat_id`).
