@@ -1,9 +1,7 @@
 import express from "express";
 import cors from "cors";
-import tripRoutes from "./routes/trips.js";
-import activityRoutes from "./routes/activities.js";
-import destinationRoutes from "./routes/destinations.js";
-import tripDestinationRoutes from "./routes/trips_destinations.js";
+import chatRoutes from "./routes/chats.js";
+import userRoutes from "./routes/users.js";
 
 const app = express();
 
@@ -18,10 +16,8 @@ app.get("/", (req, res) => {
     );
 });
 
-app.use("/api/trips", tripRoutes);
-app.use("/api/activities", activityRoutes);
-app.use("/api/destinations", destinationRoutes);
-app.use("/api/trips-destinations", tripDestinationRoutes);
+app.use("/api/chats", chatRoutes);
+app.use("/api/users", userRoutes);
 
 const PORT = 3001;
 
