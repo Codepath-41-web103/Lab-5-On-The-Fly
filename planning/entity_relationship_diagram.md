@@ -39,6 +39,8 @@ Reference the Creating an Entity Relationship Diagram final project guide in the
 | user_id   | Integer | Foriegn Key        |
 | chat_id   | Integer | Foriegn Key        |
 
+<img src='/public/ERD.PNg' title='ERD Screenshot' width='' alt='ERD Screenshot' />
+
 ## One-to-Many Relationships
 
 - **Chats to Messages:**
