@@ -58,7 +58,7 @@ We only have two tables, users, and chats. Since the Message Table will be in a 
 
    - **GET** `/user/:id`
 
-2. This API endpoint creates a conversation with two users (if the chat with two users already exists, then it will ignore the request). To create the `chat_id` ideally combine both sender and recipient `id`s together and sort them. This will create a unique ID that can only be replicated if both IDs are correct, essentially making a two-part key. for example sender_id = `1sawd` recipient_id = `aaaa` chat_id = `1aaaaadws`
+2. This API endpoint creates a chat with two users (if the chat with two users already exists, then it will ignore the request). To create the `chat_id` ideally combine both sender and recipient `id`s together and sort them. This will create a unique ID that can only be replicated if both IDs are correct, essentially making a two-part key. for example sender_id = `1sawd` recipient_id = `aaaa` chat_id = `1aaaaadws`
 
    - **POST** `/`
 
