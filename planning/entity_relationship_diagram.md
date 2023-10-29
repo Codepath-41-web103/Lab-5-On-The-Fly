@@ -10,7 +10,7 @@ Reference the Creating an Entity Relationship Diagram final project guide in the
 
 [👉🏾👉🏾👉🏾 Include an image or images of the diagram below. You may also wish to use the following markdown syntax to outline each table, as per your preference.]
 
-| Chats        | Type        | List of Activities            |
+| Chats        | Type        | List of Chats                 |
 | ------------ | ----------- | ----------------------------- |
 | created_at   | Date        | the time the chat was created |
 | recepient_id | Integer     | the id of the recepient       |
@@ -24,15 +24,15 @@ Reference the Creating an Entity Relationship Diagram final project guide in the
 | text        | String  | content of the message               |
 | sender_id   | Integer | the id of the sender                 |
 | img_url     | String? | image of with the message (Optional) |
-| profile_url | String  | image of country flag                |
+| profile_url | String  | image of sender                      |
 
-| Users      | Type    | List of Users            |
-| ---------- | ------- | ------------------------ |
-| id         | Integer | primary key              |
-| name       | String  | name of user             |
-| email      | String  | email of user            |
-| avatar_url | String  | image of user            |
-| password   | String  | password of user account |
+| Users      | Type    | List of Users         |
+| ---------- | ------- | --------------------- |
+| id         | Integer | primary key           |
+| name       | String  | name of user          |
+| email      | String  | email of user         |
+| avatar_url | String  | image of user         |
+| bio        | String  | biography of the user |
 
 | UserChats | Type    | List of User Chats |
 | --------- | ------- | ------------------ |
