@@ -17,3 +17,7 @@ Reference the Creating an Entity Relationship Diagram final project guide in the
 ## Wireframe 3: Trips
 
 <img src='/public/Profile.jpg' title='Profile Screenshot' width='' alt='Profile Screenshot' />
+
+## Wireframe 3: Destop View
+
+<img src='/public/Deskstop.png' title='Deskstop Screenshot' width='' alt='Deskstop Screenshot' />

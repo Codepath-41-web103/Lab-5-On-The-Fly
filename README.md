@@ -1,4 +1,4 @@
-# On the Fly
+# Chatat
 
 CodePath WEB103 Final Project
 
@@ -10,11 +10,11 @@ Designed and developed by: Lovinson Dieujuste and Mike Odnis
 
 ### Description and Purpose
 
-An app where users can book and store trips and see activities in their destinations
+An app where users can chat with your favorite people with real-time messaging.
 
 ### Inspiration
 
-Lovinson and Mike both like to travel , so an app that would help us do that is ideal
+Lovinson and Mike both like messaging apps, and wanted to build one of their own.
 
 ## Tech Stack
 
@@ -24,33 +24,23 @@ Backend: PostgreSQL
 
 - [x] The web app implements at least one interaction that the user can initiate and complete on the same page without navigating to a new page.
 
-### [Trips]
+### [Real_Time_Messaging]
 
-User can view a list of trips that they can save
-
-[gif goes here]
-
-### [Activities]
-
-Once a User save a trip, they can view a list of activities associated with the trip that they can participate in
+Users can send text messages to other users in real-time.
 
 [gif goes here]
 
-### [Destinations]
+### [Search]
 
-Users can browse a list of destinations, see the Activities associated with each destination. and save it as a trip
+Users can search for other users by their username, so they can start conversations with them.
 
-[gif goes here]
+### [Customize_Profile]
 
-### [ADDITIONAL FEATURES GO HERE - ADD ALL FEATURES HERE IN THE FORMAT ABOVE; you will check these off and add gifs as you complete them]
+Users can customize their profile by adding a display name, profile photo, and bio.
 
-### [Photos]
+### [Edit_Delete_Messages]
 
-Users can add photos to trips and destinations.
-
-### [Dynamic_Price_Estimate]
-
-Users can have a dynamic price estimate base on the price of activities they are doing in the trip and how many days they are staying
+Users can edit the messages they've sent, in case they make a mistake or want to clarify something. also delete messages that they've sent, to maintain privacy and control over their conversations.
 
 ## Installation Instructions
 
