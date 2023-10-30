@@ -1,16 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import { cn } from '../../lib/utils'
-import './Article.scss'
+import './Picture.scss'
 
-export default function Article({className, children, style}) {
+export default function Picture({className, children, style}) {
   return (
-    <article className={cn('', className)} style={style}>
+    <picture className={cn('', className)} style={style}>
       {children}
-    </article>
+    </picture>
   )
 }
-Article.propTypes = {
+Picture.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
   style: PropTypes.object,

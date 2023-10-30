@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react'
 
 function index() {
@@ -6,5 +5,4 @@ function index() {
     <div>index</div>
   )
 }
-
 export default index

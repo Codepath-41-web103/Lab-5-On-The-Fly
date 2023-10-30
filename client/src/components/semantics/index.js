@@ -5,4 +5,7 @@ const Header = lazy(() => import('./Header'));
 const Main = lazy(() => import('./Main'));
 const Section = lazy(() => import('./Section'));
 const Article = lazy(() => import('./Article'));
-export { Nav, Footer, Header, Main, Section, Article };
+const Menu = lazy(() => import('./Menu'));
+const Picture = lazy(() => import('./Picture'));
+
+export { Nav, Footer, Header, Main, Section, Article, Menu, Picture };
