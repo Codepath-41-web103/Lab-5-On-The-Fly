@@ -1,12 +1,12 @@
-# TravelMate Pitch Deck
+# Chatat
 
 ## App Name:
 
-On the Fly
+Chatat
 
 ## Brief Description:
 
-'On the Fly' is your ultimate travel companion. It's a one-stop app that helps travelers plan and store their trips, discover exciting activities at their destinations, and estimate trip costs, all in one place.
+Chatat is an app where users can engage in real-time messaging with their favorite people, providing a seamless and interactive chat experience.
 
 ## Team Members:
 
@@ -15,62 +15,66 @@ On the Fly
 
 ## Purpose of Your App / Problem It Solves:
 
-Travelers often face the challenge of planning and organizing their trips, from finding destinations to estimating costs and booking activities. 'On the Fly' streamlines this process, making it easier for users to plan their adventures and explore new places.
+Chatat solves the need for a user-friendly and efficient messaging platform that enables users to communicate in real-time. It offers a space for people to connect, chat, and share their thoughts instantly.
 
 ## Inspiration:
 
-Our shared passion for travel inspired us to create 'On the Fly'. We wanted to build a tool that simplifies the travel planning process and enhances the overall travel experience.
+Chatat was inspired by our mutual appreciation for messaging apps. We wanted to create a messaging platform that offers a user-focused and feature-rich chat experience.
 
-## Target Audience:
+## Who Your App is Designed for and Why:
 
-'On the Fly'is designed for travelers of all kinds, from solo adventurers to family vacation planners. Our app caters to anyone looking for a seamless way to explore the world.
+Chatat is designed for anyone who values real-time communication with their peers. Whether it's connecting with friends, family, or colleagues, Chatat provides a convenient way to stay in touch.
 
-## Audience Size:
+## Research into the Size of the Audience for Your App:
 
-The travel industry is massive, with millions of people seeking adventure and exploration. 'On the Fly' aims to capture a share of this vast audience.
+The potential audience for Chatat is significant, as messaging apps have a broad and global user base. Millions of people rely on messaging apps for communication, making this a substantial market.
 
-## Comparable Apps:
+## Apps Adjacent to Yours in Theme and/or Purpose:
 
-While there are other travel apps out there, 'On the Fly' distinguishes itself through its comprehensive approach to travel planning, focusing on user-friendly trip organization and dynamic cost estimation.
+Chatat is in the same category as well-known messaging apps like WhatsApp, Facebook Messenger, and Slack. These apps focus on real-time messaging and communication.
 
-## Unique Selling Points:
+## How Your App is Unique or Stands Out from the Crowd:
 
-- User-Friendly Trip Planning: Travelers can easily create, edit, and manage their trip itineraries.
-- Dynamic Price Estimation: 'On the Fly' offers real-time cost estimates based on chosen activities and trip duration.
-- Comprehensive Destination Information: Trip planners can add details like activities, hotels, and restaurants for travelers to access.
-- Trip Sharing: Travelers can share their trips with friends and family, fostering a sense of community.
+Chatat stands out through its user-focused design and features. It offers a simple and efficient chat experience with real-time messaging. Users can easily customize their profiles, edit or delete messages, and search for other users by username. It's built to be user-friendly and feature-rich.
 
-## App's Appearance:
+## What Your App Looks Like:
 
-'On the Fly' boasts an intuitive and visually appealing user interface, making it easy for users to navigate between different views.
+Chatat features an intuitive and visually appealing user interface with clean and modern design elements. Users can seamlessly navigate between different views for chatting, searching, and profile customization.
 
-## User Navigation:
+## How Users Navigate Between Different Views:
 
-Users can seamlessly transition between sections like "Trips," "Activities," and "Destinations" through a user-friendly menu.
+Users can navigate between different views within Chatat seamlessly. The app provides a user-friendly menu for transitioning between real-time messaging, search functionality, profile customization, and managing messages.
 
-## Personalization:
+## How the Experience is Personalized for the User:
 
-'On the Fly' tailors the travel experience by allowing users to create personalized itineraries and estimate costs based on their preferences.
+Chatat personalizes the experience by allowing users to customize their profiles with a display name, profile photo, and bio. This personalization feature enhances the user's identity within the app.
 
 ## Tech Stack:
 
 - Frontend: React
-- Backend: PostgreSQL
+- Backend: PostgreSQL & Firebase
 
-## External APIs/Resources:
+## External APIs or Resources:
 
-We intend to integrate external APIs for travel booking, location data, and activity information to enhance our app's functionality.
+Chatat intends to leverage external resources and APIs to enhance its functionality, enabling users to enjoy an enriched and feature-rich chat experience.
 
-## Minimum Viable Product (MVP):
+## Minimum Viable Product (MVP) for the App:
 
-Our MVP includes the following core features:
+Chatat's MVP includes the following core features:
 
-- User registration and login
-- Trip creation and editing
-- Activity browsing and selection
-- Dynamic cost estimation
-- Trip sharing
+- Real-time messaging
+- User profile customization
+- Message editing and deletion
+- User search by username
 
-## Feedback Needs:
+## Directions for Where Feedback is Most Needed:
 
-We welcome feedback on our app's user interface, feature set, and dynamic price estimation accuracy. Your insights will help us refine the TravelMate experience.
+We welcome feedback on various aspects of Chatat, including user interface, feature set, and overall user experience. Your insights will help us enhance and refine the Chatat messaging platform.
+
+## Link to Deployed App:
+
+[Link to Chatat](insert_link_here)
+
+## Installation Instructions:
+
+To run Chatat locally, follow these instructions:

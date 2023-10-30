@@ -2,13 +2,13 @@
 
 ## ✅ Baseline Features (MUST complete ALL)
 
-- [ ] Complete all of the baseline features. These features use the core skills developed in this course, including designing a database schema, creating a server, and connecting a frontend to the server.
+- [x] Complete all of the baseline features. These features use the core skills developed in this course, including designing a database schema, creating a server, and connecting a frontend to the server.
 
 - [x] The web app includes an Express backend app and a React frontend app.
 
-- [ ] The web app includes dynamic routes for both frontend and backend apps.
+- [x] The web app includes dynamic routes for both frontend and backend apps.
 
-- [ ] The web app is deployed on Railway with all pages and features working.
+- [x] The web app is deployed on Railway with all pages and features working.
 
 ## Backend Features
 
@@ -27,3 +27,13 @@
 - [x] The web app implements at least one redirection.
 
 - [x] The web app implements at least one interaction that the user can initiate and complete on the same page without navigating to a new page.
+
+- [x] The web app uses dynamic frontend routes created with React Router.
+- [x] The web app uses hierarchically designed React components:
+- [x] Components are broken down into categories, including page and component types.
+- [x] Corresponding container components and presenter components as appropriate.
+
+## Custom Features
+
+- [ ] The web app gracefully handles errors.
+- [x] The web app includes a one-to-one database relationship.
