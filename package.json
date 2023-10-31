@@ -1,0 +1,14 @@
+{
+  "name": "lab-5-on-the-fly",
+  "version": "1.0.0",
+  "description": "CodePath WEB103 Final Project",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"cd client && npm run dev\" \"cd server && npm run start\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
