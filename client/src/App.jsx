@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 
 const App = () => {
   const [users, setUsers] = useState([]);
-    const [destinations, setDestinations] = useState([]);
+  const [destinations, setDestinations] = useState([]);
 
   useEffect(() => {
     const fetchUsers = async () => {
