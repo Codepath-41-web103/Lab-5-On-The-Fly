@@ -1,7 +1,7 @@
 import React from 'react'
 
 const SignUp = () => {
-  retur0n (
+  return (
     <div>Signup</div>
   )
 }

@@ -2,7 +2,6 @@ import "./App.scss";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import { Link } from "react-router-dom";
 const App = () => {
   const [users, setUsers] = useState([]);
     const [destinations, setDestinations] = useState([]);
