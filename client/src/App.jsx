@@ -31,6 +31,7 @@ const App = () => {
       <ToasterProvider />
       <LoginModal />
       <SignupModal />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/chats" element={<Chats />} />
