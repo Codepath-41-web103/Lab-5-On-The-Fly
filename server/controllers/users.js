@@ -44,7 +44,7 @@ const updateUserbyId = async (req, res) => {
     const id = parseInt(req.params.id);
     const { name, avatar_url, bio } = req.body;
     const results = await pool.query(
-      `UPDATE activities
+      `UPDATE users
       SET name = $1,
       avatar_url = $2,
       bio = $3
@@ -60,10 +60,16 @@ const updateUserbyId = async (req, res) => {
 const deleteUserById = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
-    const results = await pool.query("DELETE FROM activities WHERE id = $1", [
-      id,
-    ]);
+    const results = await pool.query("DELETE FROM users WHERE id = $1", [id]);
     res.status(200).json(results.rows[0]);
+  } catch (error) {
+    res.status(409).json({ error: error.message });
+  }
+};
+const getUsers = async (req, res) => {
+  try {
+    const results = await pool.query("SELECT * FROM users");
+    res.status(200).json(results.rows);
   } catch (error) {
     res.status(409).json({ error: error.message });
   }
@@ -75,4 +81,5 @@ export default {
   getUserById,
   updateUserbyId,
   deleteUserById,
+  getUsers,
 };

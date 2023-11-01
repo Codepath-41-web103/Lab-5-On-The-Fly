@@ -12,11 +12,15 @@ We only have two tables, users, and chats. Since the Message Table will be in a 
 
    - **GET** `/search/:email`
 
-2. This API endpoint gets user information based on their ID.
+2. This API endpoint get all the users in the database.
+
+   - **GET** `/`
+
+3. This API endpoint gets user information based on their ID.
 
    - **GET** `/:id`
 
-3. This API endpoint creates the user in our database. Make sure you include these parameters, also Keep in mind that the `id` should be the `localID` provided by Firebase Auth.
+4. This API endpoint creates the user in our database. Make sure you include these parameters, also Keep in mind that the `id` should be the `localID` provided by Firebase Auth.
 
    - **POST** `/`
 
@@ -32,7 +36,7 @@ We only have two tables, users, and chats. Since the Message Table will be in a 
      }
      ```
 
-4. This API endpoint edits the user's information based on their ID. Users cannot edit their email or ID.
+5. This API endpoint edits the user's information based on their ID. Users cannot edit their email or ID.
 
    - **PATCH** `/:id`
 
@@ -46,7 +50,7 @@ We only have two tables, users, and chats. Since the Message Table will be in a 
      }
      ```
 
-5. This API endpoint deletes the user by ID.
+6. This API endpoint deletes the user by ID.
 
    - **DELETE** `/:id`
 

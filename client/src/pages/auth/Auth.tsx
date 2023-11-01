@@ -1,23 +1,26 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import ForgotPassword from '../auth/ForgotPassword/ForgotPassword';
-import Login from '../auth/Login/Login';
-import SignUp from '../auth/Signup/Signup';
+import React, { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import ForgotPassword from "../auth/ForgotPassword/ForgotPassword";
+import Login from "./Login/Login.jsx";
+import SignUp from "./Signup/Signup.jsx";
+import { useAuth } from "../../auth/AuthState";
 export default function Auth() {
-  const Login = () =>  {
-    return (
-      <>
-        
-      </>
-    ) 
-  }
+  const user = useAuth();
+
+  useEffect(() => {
+    if (user) {
+      //! Navigate to the chat app
+    } else {
+      //! Navigate to the login page
+    }
+  }, []);
   return (
     <>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/register" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<SignUp />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
     </>
-  )
+  );
 }
