@@ -1,6 +1,10 @@
 import "./App.scss";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import Users from "./pages/users/Users";
+import Chats from "./pages/chat/Chat";
+import Home from "./pages/Home";
+import NotFound from "./components/dom-states/NotFound";
 
 const App = () => {
   const [users, setUsers] = useState([]);
