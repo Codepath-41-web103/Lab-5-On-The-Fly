@@ -88,7 +88,7 @@ function Modal({
               md:h-auto
               border-0
               rounded-lg
-              shadow-lg
+              shadow-2xl
               relative
               flex-cols
               w-full
