@@ -1,4 +1,3 @@
-import "./App.scss";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Users from "./pages/users/Users";
@@ -8,6 +7,8 @@ import NotFound from "./components/dom-states/NotFound";
 import ToasterProvider from "./providers/ToastProvider";
 import LoginModal from "./components/modals/LoginModal";
 import SignupModal from "./components/modals/SignupModal";
+import '@picocss/pico'
+import "./App.scss";
 
 const App = () => {
   const [users, setUsers] = useState([]);

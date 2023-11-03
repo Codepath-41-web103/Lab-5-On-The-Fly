@@ -1,2 +1,25 @@
 @import '../../styles/_variables.scss';
 
+nav {
+  box-shadow: 0 10px 5px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  li {
+    margin-left: 1rem;
+    img {
+      border-radius: 25%;
+      aspect-ratio: 1/1;
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      object-position: center;
+      cursor: pointer;
+    }
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+  }
+}
