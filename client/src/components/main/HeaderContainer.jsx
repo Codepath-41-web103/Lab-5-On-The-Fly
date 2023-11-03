@@ -5,13 +5,13 @@ import './HeaderContainer.scss'
 const HeaderContainer = () => {
   return (
     <Header
-      className={``}
+      className={`h-[100dvh] w-full overflow-hidden`}
     >
       <Section
         className={``}
       >
         <Article
-          className={``}
+          className={`bg-transparent shadow-none m-0 p-0`}
         >
           <h1>Header</h1>
         </Article>

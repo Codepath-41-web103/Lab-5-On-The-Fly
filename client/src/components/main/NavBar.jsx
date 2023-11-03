@@ -1,5 +1,5 @@
 import React from 'react'
-import { DarkThemeToggle } from 'flowbite-react'
+// import { DarkThemeToggle } from 'flowbite-react'
 import { Nav, Menu } from '../semantics/index'
 import toast from "react-hot-toast";
 import { signOut } from "firebase/auth";
@@ -17,14 +17,18 @@ const NavBar = () => {
     toast.success("Logged out successfully");
   };
   useAuthMethods(user, signupModal);
+  console.log(user.displayName);
+  console.log(user.email);
+  console.log(user.photoUrl);
+
   return (
     <Nav
       className={`flex flex-row justify-between items-center h-[50px] w-[100dvw] fixed top-0 text-lg font-bold m-0 px-[1rem] `}
     >
       <Menu
-        className={`flex`}
+        className={`flex flex-row`}
       >
-        <li>
+        <li className='flex '>
           <img src="/images/Chatat.png" alt="logo" width={100} height={100} />
           <span>
             Chatat
@@ -34,9 +38,6 @@ const NavBar = () => {
       <Menu
         className={`flex`}
       >
-        <li>
-          <DarkThemeToggle theme={''} />
-        </li>
         <li>
           {user ? (
             <button

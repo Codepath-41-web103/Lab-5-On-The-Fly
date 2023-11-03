@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useLoginModal from "../hooks/useLoginModal";
 
 export const useAuthMethods = (user, signupModal) => {
@@ -13,3 +13,13 @@ export const useAuthMethods = (user, signupModal) => {
     }
   }, [user]);
 };
+
+export const getUserProperties = (user) => {
+  const [userProperties, setUserProperties] = useState();
+  useEffect(() => {
+    
+    return () =>  { 
+      photoUrl, email, displayName
+    };
+  }, [user]);
+}
