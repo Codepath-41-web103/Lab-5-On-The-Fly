@@ -7,4 +7,12 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #feffff;
+}
+
+/* bg-[#feffff] dark:bg-[#121212] */
+@media only screen and (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+  }
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { setCustomTheme } from '../redux/themeSlice';
 import { Flowbite } from 'flowbite-react';
 import PropTypes from 'prop-types';
 

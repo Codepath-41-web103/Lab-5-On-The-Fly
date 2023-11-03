@@ -32,16 +32,16 @@
 }
 
 :root {
-  --color1: #
-  --color2: #
-  --color3: #
-  --color4: #
-  --color5: #
-  --color6: #
-  --color7: #
+  --color1: rgb(4, 148, 254)
+  --color2: rgb(43, 166, 254)
+  --color3: rgb(81, 183, 254)
+  --color4: rgb(120, 201, 255)
+  --color5: rgb(159, 218, 255)
+  --color6: rgb(197, 236, 255)
+  --color7: rgb(236, 253, 255)
 }
 
-/* Pink Light scheme (Default) */
+/* Light scheme (Default) */
 [data-theme="light"],
 :root:not([data-theme="dark"]) {
   --primary: var(--color1);
@@ -50,7 +50,7 @@
   --primary-inverse: var(--color7);
 }
 
-/* Pink Dark scheme (Auto) */
+/* Dark scheme (Auto) */
 @media only screen and (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
     --primary: var(--color4);
@@ -60,7 +60,7 @@
   }
 }
 
-/* Pink Dark scheme (Forced) */
+/* Dark scheme (Forced) */
 [data-theme="dark"] {
   --primary: var(--color4);
   --primary-hover: var(--color5);
@@ -68,7 +68,7 @@
   --primary-inverse: var(--color7);
 }
 
-/* Pink (Common styles) */
+/* (Common styles) */
 :root {
   --form-element-active-border-color: var(--primary);
   --form-element-focus-color: var(--primary-focus);

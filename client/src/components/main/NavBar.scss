@@ -7,10 +7,19 @@ nav {
   li {
     margin-left: 1rem;
     img {
-
+      border-radius: 50%;
+      aspect-ratio: 1/1;
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      object-position: center;
+      cursor: pointer;
     }
     span {
-      
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
     }
   }
 }

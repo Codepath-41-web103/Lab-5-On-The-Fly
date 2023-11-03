@@ -1,9 +1,8 @@
-import { lazy } from "react";
-const FooterBar = lazy(() => import('./'));
-const NavBar = lazy(() => import('./'));
-const HeaderContent= lazy(() => import('./'));
+import FooterBar from "./FooterBar";
+import NavBar from "./NavBar";
+import HeaderContainer from "./HeaderContainer";
 export { 
   FooterBar,
   NavBar,
-  HeaderContent
+  HeaderContainer
 };

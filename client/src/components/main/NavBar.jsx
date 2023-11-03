@@ -25,7 +25,7 @@ const NavBar = () => {
         className={`flex`}
       >
         <li>
-          <img src="/images/Chatat.png" alt="" />
+          <img src="/images/Chatat.png" alt="logo" width={100} height={100} />
           <span>
             Chatat
           </span>
@@ -35,11 +35,9 @@ const NavBar = () => {
         className={`flex`}
       >
         <li>
-          <DarkThemeToggle />
+          <DarkThemeToggle theme={''} />
         </li>
-        <li
-
-        >
+        <li>
           {user ? (
             <button
               onClick={() => {

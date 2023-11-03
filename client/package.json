@@ -20,6 +20,8 @@
     "clsx": "^2.0.0",
     "firebase": "^10.5.2",
     "flowbite-react": "^0.6.4",
+    "@picocss/pico": "^1.5.10",
+    "postcss": "^8.4.31",
     "prop-types": "^15.8.1",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.11.0",

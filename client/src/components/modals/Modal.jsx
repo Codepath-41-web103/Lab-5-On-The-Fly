@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import Button from "../Inputs/Button";
+import PropTypes from "prop-types";
 
 function Modal({
   isOpen,
@@ -110,5 +111,18 @@ function Modal({
     </>
   );
 }
+
+Modal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  footer: PropTypes.node,
+  body: PropTypes.node.isRequired,
+  actionLabel: PropTypes.string.isRequired,
+  disabled: PropTypes.bool,
+  secondaryAction: PropTypes.func,
+  secondaryLabel: PropTypes.string,
+};
 
 export default Modal;
