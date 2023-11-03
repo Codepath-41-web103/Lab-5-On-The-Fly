@@ -17,9 +17,9 @@ const NavBar = () => {
     toast.success("Logged out successfully");
   };
   useAuthMethods(user, signupModal);
-  console.log(user.displayName);
-  console.log(user.email);
-  console.log(user.photoUrl);
+  // console.log(user.displayName);
+  // console.log(user.email);
+  // console.log(user.photoUrl);
 
   return (
     <Nav
