@@ -30,26 +30,28 @@ export default function Home() {
   }, [user]);
 
   return (
-    <div className="text-rose-500">
-      This is home{" "}
-      {user ? (
-        <div
-          onClick={() => {
-            handleLogOut();
-          }}
-          className="text-black font-bold cursor-pointer hover:underline"
-        >
-          {" "}
-          Logout
-        </div>
-      ) : (
-        <div
-          className="text-black font-bold cursor-pointer hover:underline"
-          onClick={() => signupModal.onOpen()}
-        >
-          Signin
-        </div>
-      )}
-    </div>
+    <>
+      <div className="text-rose-500">
+        This is home{" "}
+        {user ? (
+          <button
+            onClick={() => {
+              handleLogOut();
+            }}
+            className="text-black font-bold cursor-pointer hover:underline"
+          >
+            {" "}
+            Logout
+          </button>
+        ) : (
+          <button
+            className="text-black font-bold cursor-pointer hover:underline"
+            onClick={() => signupModal.onOpen()}
+          >
+            Login
+          </button>
+        )}
+      </div>
+    </>
   );
 }

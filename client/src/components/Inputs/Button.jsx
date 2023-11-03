@@ -19,7 +19,7 @@ function Button({
       }  ${outline ? "border-black " : "bg-transparent "} ${
         outline ? "text-black " : "bg-transparent "
       } ${small ? "py-1 " : "py-3 "} ${small ? "text-sm " : "text-md "} ${
-        outline ? "border-[1px] " : "border-[2px] "
+        outline ? "border-[2px] " : "border-[2px] "
       } ${outline ? "font-light " : "font-semibold "}
       ${selected ? "text-blue-400 " : ""}
       ${selected ? "border-blue-400 " : ""}
@@ -27,7 +27,7 @@ function Button({
     >
       {Icon && <Icon size={24} className=" md:absolute md:left-4 md:top-3 " />}
 
-      <div className={`${mobile ? "hidden md:block" : ""}`}>{label}</div>
+      <div className={` font-normal`}>{label}</div>
     </button>
   );
 }
