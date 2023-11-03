@@ -61,7 +61,7 @@ function LoginModal({}) {
         label="Email"
         value={email}
         stateChange={setEmail}
-        required
+        required={true}
       />
       <Input
         id="password"
@@ -69,7 +69,7 @@ function LoginModal({}) {
         label="Password"
         value={password}
         stateChange={setPassword}
-        required
+        required={true}
       />
     </div>
   );
@@ -84,12 +84,12 @@ function LoginModal({}) {
         onClick={() => handleGoogle()}
       />
 
-      <div className="text-black text-center mt-4 font-light">
-        <div className="justify-center flex flex-row items-center gap-2">
+      <div className="mt-4 font-light text-center text-black">
+        <div className="flex flex-row items-center justify-center gap-2">
           <div className="">First time using Chatat?</div>
           <div
             onClick={toggle}
-            className="text-slate-50 cursor-pointer hover:underline"
+            className="cursor-pointer text-slate-50 hover:underline"
           >
             Create an account
           </div>

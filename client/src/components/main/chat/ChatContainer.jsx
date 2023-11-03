@@ -1,8 +1,11 @@
-import React from 'react'
+'use client';
 
+import React from 'react'
+import { Section } from '../../semantics/index'
+import { Avatar } from 'flowbite-react'
 function ChatContainer() {
   return (
-    <div>ChatContainer</div>
+    <Section>ChatContainer</Section>
   )
 }
 
