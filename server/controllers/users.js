@@ -4,7 +4,7 @@ const createUser = async (req, res) => {
   try {
     const { name, email, avatar_url, id, bio } = req.body;
     const check = await pool.query("SELECT * FROM users WHERE id = $1", [id]);
-    console.log("check rows", check.rows);
+
     if (check.rows.length === 0) {
       const results = await pool.query(
         `INSERT INTO users (name, email, avatar_url, id, bio)
@@ -12,10 +12,8 @@ const createUser = async (req, res) => {
       RETURNING *`,
         [name, email, avatar_url, id, bio],
       );
-      console.log("sucess results", results.rows[0]);
       res.status(201).json(results.rows[0]);
     } else {
-      console.log("check rows", check.rows[0]);
       res.status(200).json(check.rows[0]);
     }
   } catch (error) {
@@ -25,10 +23,11 @@ const createUser = async (req, res) => {
 
 const getUsersByEmail = async (req, res) => {
   const { email } = req.params;
+  console.log("email", email);
   try {
     const results = await pool.query(
       "SELECT * FROM users WHERE email LIKE $1",
-      [email],
+      [`%${email}%`],
     );
     res.status(200).json(results.rows);
   } catch (error) {
