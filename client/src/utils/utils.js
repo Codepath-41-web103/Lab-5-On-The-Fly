@@ -1,6 +1,18 @@
 import { useEffect, useState } from "react";
 import useLoginModal from "../hooks/useLoginModal";
+import axios from "axios";
 
+const createUser = async (user) => {
+  try {
+    const response = await axios.post("http://localhost:3001/api/users", user);
+    const getUser = await axios.get(
+      `http://localhost:3001/api/users/${user.id}`,
+    );
+    console.log("response", getUser);
+  } catch (error) {
+    console.log("User creation error", error);
+  }
+};
 export const useAuthMethods = (user, signupModal) => {
   const loginModal = useLoginModal();
   useEffect(() => {
@@ -8,6 +20,13 @@ export const useAuthMethods = (user, signupModal) => {
     if (user) {
       signupModal.onClose();
       loginModal.onClose();
+      createUser({
+        name: user.displayName,
+        email: user.email,
+        avatar_url: user.photoUrl,
+        bio: "",
+        id: user.localId,
+      });
     } else {
       signupModal.onOpen();
     }
@@ -17,9 +36,8 @@ export const useAuthMethods = (user, signupModal) => {
 export const getUserProperties = (user) => {
   const [userProperties, setUserProperties] = useState();
   useEffect(() => {
-    
-    return () =>  { 
-      photoUrl, email, displayName
+    return () => {
+      photoUrl, email, displayName;
     };
   }, [user]);
-}
+};

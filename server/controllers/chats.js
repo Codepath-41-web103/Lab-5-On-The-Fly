@@ -21,7 +21,7 @@ const putChat = async (req, res) => {
   try {
     // Check for chats where either sender_id or recipient_id matches the provided id
     const results = await pool.query(
-      "SELECT * FROM Chats WHERE (sender_id = $1 OR recepient_id = $1) AND (sender_id = $2 OR recepient_id = $2)",
+      "SELECT * FROM chats WHERE (sender_id = $1 OR recepient_id = $1) AND (sender_id = $2 OR recepient_id = $2)",
       [sender_id, recepient_id],
     );
 
@@ -31,7 +31,7 @@ const putChat = async (req, res) => {
       // If the chat doesn't exist, you can create it, assuming the 'created_at' column is automatically generated.
       // Replace 'your_sender_id' and 'your_recipient_id' with the appropriate values.
       const insertResult = await pool.query(
-        "INSERT INTO Chats (sender_id, recepient_id, chat_id) VALUES ($1, $2, 3$) RETURNING *",
+        "INSERT INTO chats (sender_id, recepient_id, chat_id) VALUES ($1, $2, 3$) RETURNING *",
         [sender_id, recepient_id, chat_id],
       );
 

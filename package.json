@@ -4,7 +4,7 @@
   "description": "CodePath WEB103 Final Project",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"cd client && npm upgrade && npm ci && npm run dev\" \"cd server && npm upgrade && npm ci && npm run start\""
+    "dev": "concurrently \"cd client && npm run dev\" \"cd server && npm run start\""
   },
   "author": "",
   "license": "ISC",
@@ -12,3 +12,4 @@
     "concurrently": "^8.2.2"
   }
 }
+

@@ -56,6 +56,7 @@ function SignupModal({}) {
       <hr />
       <Input
         id="email"
+        type="email"
         label="Email"
         disabled={isLoading}
         value={email}
