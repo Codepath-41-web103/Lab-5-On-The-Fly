@@ -24,7 +24,7 @@ Backend: PostgreSQL & Firebase
 
 - [x] The web app implements at least one interaction that the user can initiate and complete on the same page without navigating to a new page.
 
-### [x] Authenication
+ - [x] Authenication
 
 Users can sign up and log in to the app, so they can start chatting with their friends.
 <img src='/public/Authenication.gif' title='Profile Screenshot' width='' alt='Profile Screenshot' />
