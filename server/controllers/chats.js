@@ -2,7 +2,8 @@ import { pool } from "../config/database.js";
 
 //? Get all the chats associated by the user
 const getChatsbyUserID = async (req, res) => {
-  const id = parseInt(req.params.id);
+  const id = req.params.id;
+  console.log("the Chat User ID", id);
   try {
     const results = await pool.query(
       "SELECT * FROM chats WHERE recepient_id = $1 OR sender_id = $1 ORDER BY created_at",
@@ -31,7 +32,7 @@ const putChat = async (req, res) => {
       // If the chat doesn't exist, you can create it, assuming the 'created_at' column is automatically generated.
       // Replace 'your_sender_id' and 'your_recipient_id' with the appropriate values.
       const insertResult = await pool.query(
-        "INSERT INTO chats (sender_id, recepient_id, chat_id) VALUES ($1, $2, 3$) RETURNING *",
+        "INSERT INTO chats (sender_id, recepient_id, chat_id) VALUES ($1, $2, $3) RETURNING *",
         [sender_id, recepient_id, chat_id],
       );
 
