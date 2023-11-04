@@ -2,15 +2,22 @@ import { pool } from "../config/database.js";
 
 const createUser = async (req, res) => {
   try {
-    const { name, email, avatar_url, id } = req.body;
-
-    const results = await pool.query(
-      `INSERT INTO users (name, email, avatar_url, id)
-      VALUES($1, $2, $3, 4$)
+    const { name, email, avatar_url, id, bio } = req.body;
+    const check = await pool.query("SELECT * FROM users WHERE id = $1", [id]);
+    console.log("check rows", check.rows);
+    if (check.rows.length === 0) {
+      const results = await pool.query(
+        `INSERT INTO users (name, email, avatar_url, id, bio)
+      VALUES($1, $2, $3, $4, $5)
       RETURNING *`,
-      [name, email, avatar_url, id],
-    );
-    res.status(201).json(results.rows[0]);
+        [name, email, avatar_url, id, bio],
+      );
+      console.log("sucess results", results.rows[0]);
+      res.status(201).json(results.rows[0]);
+    } else {
+      console.log("check rows", check.rows[0]);
+      res.status(200).json(check.rows[0]);
+    }
   } catch (error) {
     res.status(409).json({ error: error.message });
   }
