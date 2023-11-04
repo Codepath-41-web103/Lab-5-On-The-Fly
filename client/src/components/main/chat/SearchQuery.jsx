@@ -7,11 +7,11 @@ function SearchQuery({ query, hide, getChat, setHide }) {
   const [results, setResults] = useState([]);
   const getResults = async () => {
     if (!query) return;
-    console.log("query", query);
+
     const users = await axios.get(
       `http://localhost:3001/api/users/search/${query}`,
     );
-    console.log("the search results", users);
+
     setResults(users.data);
   };
   useEffect(() => {

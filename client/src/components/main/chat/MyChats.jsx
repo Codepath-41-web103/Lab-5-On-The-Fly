@@ -2,20 +2,26 @@ import React, { useEffect, useState } from "react";
 import UserSearch from "./user/UserSearch";
 import { useAuth } from "../../../auth/AuthState.js";
 import axios from "axios";
-function MyChats({}) {
+import ChatsContainer from "./ChatsContainer";
+function MyChats({
+  selected,
+  setSelected,
+  showCurrent,
+  setShowCurrent,
+  hide,
+  setHide,
+}) {
   const [myChats, setMyChats] = useState([]);
   const loginUser = useAuth();
 
   const getChat = async (chats) => {
-    console.log("new chat bro", chats);
     setMyChats(chats);
   };
   const getAllChat = async () => {
     const chats = await axios.get(
       `http://localhost:3001/api/chats/user/${loginUser.localId}`,
     );
-
-    setMyChats(chats);
+    setMyChats(chats.data);
   };
 
   useEffect(() => {
@@ -30,13 +36,13 @@ function MyChats({}) {
         col-span-3 `}
     >
       <UserSearch getChat={getChat} />
-      {/* <ChatsContainer
+      <ChatsContainer
         setHide={setHide}
         setShowCurrent={setShowCurrent}
         myChats={myChats}
         setSelected={setSelected}
         selected={selected}
-      /> */}
+      />
     </div>
   );
 }

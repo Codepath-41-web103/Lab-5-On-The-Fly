@@ -7,12 +7,14 @@ export default function UserSearchCard({ user, getChat }) {
   const loginUser = useAuth();
 
   const updateChat = async () => {
-    console.log("keysss ", loginUser.localId, user.id, roomID);
     try {
       await axios.post(`http://localhost:3001/api/chats`, {
         sender_id: loginUser.localId,
         recepient_id: user.id,
         chat_id: roomID,
+        recepient_name: user.name,
+        recepient_email: user.email,
+        recepient_avatar_url: user.avatar_url,
       });
       const newChats = await axios.get(
         `http://localhost:3001/api/chats/user/${loginUser.localId}`,
@@ -27,7 +29,7 @@ export default function UserSearchCard({ user, getChat }) {
   useEffect(() => {
     if (loginUser) {
       const roomId = [...user.id, ...loginUser.localId].sort().join("");
-      console.log("the room iD", roomId);
+
       setRoomID(roomId);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

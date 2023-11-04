@@ -6,12 +6,9 @@ const ChatsContainer = memo(function ChatsContainer({
   myChats,
   setSelected,
   selected,
-
   setShowCurrent,
-
   setHide,
 }) {
-  console.log("mychats", myChats);
   return (
     <div className="overflow-y-scroll overflow-x-hidden">
       {myChats?.map((user) => (
@@ -19,7 +16,7 @@ const ChatsContainer = memo(function ChatsContainer({
           setHide={setHide}
           setShowCurrent={setShowCurrent}
           user={user}
-          key={user.id}
+          key={user.chat_id}
           setSelected={setSelected}
           selected={selected}
         />

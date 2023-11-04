@@ -10,6 +10,9 @@ const createChatsTable = async () => {
       chat_id TEXT NOT NULL DEFAULT '',
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       recepient_id TEXT NOT NULL DEFAULT '',
+      recepient_name TEXT NOT NULL DEFAULT '',
+      recepient_email TEXT NOT NULL DEFAULT '',
+      recepient_avatar_url TEXT NOT NULL DEFAULT '',
       sender_id TEXT NOT NULL DEFAULT ''
     );
   `;
