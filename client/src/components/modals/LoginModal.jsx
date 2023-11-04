@@ -58,6 +58,7 @@ function LoginModal({}) {
       <hr />
       <Input
         id="email"
+        type="email"
         label="Email"
         value={email}
         stateChange={setEmail}

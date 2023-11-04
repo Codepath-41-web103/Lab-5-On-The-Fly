@@ -4,11 +4,13 @@ import { fileURLToPath } from "url";
 
 const createChatsTable = async () => {
   const createChatsTableQuery = `
+    DROP TABLE IF EXISTS chats;
+
     CREATE TABLE IF NOT EXISTS chats (
-      chat_id INTEGER NOT NULL,
+      chat_id TEXT NOT NULL DEFAULT '',
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-      recipient_id INTEGER NOT NULL,
-      sender_id INTEGER NOT NULL
+      recepient_id TEXT NOT NULL DEFAULT '',
+      sender_id TEXT NOT NULL DEFAULT ''
     );
   `;
 
@@ -22,12 +24,14 @@ const createChatsTable = async () => {
 
 const createUsersTable = async () => {
   const createUsersTableQuery = `
+    DROP TABLE IF EXISTS users;
+
     CREATE TABLE IF NOT EXISTS users (
-      id TEXT NOT NULL,
-      name TEXT NOT NULL,
-      email TEXT NOT NULL,
-      avatar_url TEXT NOT NULL,
-      bio TEXT NOT NULL
+      id TEXT DEFAULT '',
+      name TEXT DEFAULT '',
+      email TEXT DEFAULT '',
+      avatar_url TEXT DEFAULT '',
+      bio TEXT DEFAULT ''
     );
   `;
 
@@ -38,6 +42,13 @@ const createUsersTable = async () => {
     console.error("⚠️ error creating destinations table", err);
   }
 };
-
-createChatsTable();
-createUsersTable();
+pool
+  .connect()
+  .then(() => {
+    console.log("Connected to the database");
+    createChatsTable();
+    createUsersTable();
+  })
+  .catch((error) => {
+    console.error("Error connecting to the database:", error);
+  });

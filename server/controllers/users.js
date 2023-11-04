@@ -2,15 +2,20 @@ import { pool } from "../config/database.js";
 
 const createUser = async (req, res) => {
   try {
-    const { name, email, avatar_url, id } = req.body;
+    const { name, email, avatar_url, id, bio } = req.body;
+    const check = await pool.query("SELECT * FROM users WHERE id = $1", [id]);
 
-    const results = await pool.query(
-      `INSERT INTO users (name, email, avatar_url, id)
-      VALUES($1, $2, $3, 4$)
+    if (check.rows.length === 0) {
+      const results = await pool.query(
+        `INSERT INTO users (name, email, avatar_url, id, bio)
+      VALUES($1, $2, $3, $4, $5)
       RETURNING *`,
-      [name, email, avatar_url, id],
-    );
-    res.status(201).json(results.rows[0]);
+        [name, email, avatar_url, id, bio],
+      );
+      res.status(201).json(results.rows[0]);
+    } else {
+      res.status(200).json(check.rows[0]);
+    }
   } catch (error) {
     res.status(409).json({ error: error.message });
   }
@@ -18,10 +23,11 @@ const createUser = async (req, res) => {
 
 const getUsersByEmail = async (req, res) => {
   const { email } = req.params;
+  console.log("email", email);
   try {
     const results = await pool.query(
       "SELECT * FROM users WHERE email LIKE $1",
-      [email],
+      [`%${email}%`],
     );
     res.status(200).json(results.rows);
   } catch (error) {
