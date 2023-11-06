@@ -1,14 +1,15 @@
 import React from "react";
-import { Button } from "flowbite-react";
+// import { Button } from "flowbite-react";
 import { Layout } from "../components/wrappers/index";
 import { HeaderContainer } from "../components/main/index";
-import { Section } from "../components/semantics/index";
-import { Sections } from "../constants/index";
+// import { Section } from "../components/semantics/index";
+// import { Sections } from "../constants/index";
+import "./Home.scss";
 export default function Home() {
   return (
     <Layout>
       <HeaderContainer />
-      {Sections.map((section, index) => {
+      {/* {Sections.map((section, index) => {
         return (
           <Section
             key={index}
@@ -26,7 +27,7 @@ export default function Home() {
             </Button>
           </Section>
         );
-      })}
+      })} */}
     </Layout>
   );
 }

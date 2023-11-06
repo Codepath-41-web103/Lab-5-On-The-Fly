@@ -8,17 +8,13 @@ export default function Layout({ children }) {
   const isLoading = UsePageLoading()
   return (
     <Fragment>
-      {isLoading ? (<Loading />) :
-        (
-          <Fragment>
-            <NavBar />
-            <Main className={`h-fit`}>
-              {children}
-            </Main>
-            <FooterBar />
-          </Fragment>
-        )
-      }
+      <Fragment>
+        <NavBar />
+        <Main className={`flex h-fit w-full flex-col items-center justify-center`}>
+          {children}
+        </Main>
+        <FooterBar />
+      </Fragment>
     </Fragment>
   )
 }

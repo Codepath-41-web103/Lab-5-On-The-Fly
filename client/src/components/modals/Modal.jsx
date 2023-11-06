@@ -51,7 +51,7 @@ function Modal({
   return (
     <>
       <div
-        className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto bg-blue-500 outline-none focus:outline-none "
+        className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto bg-transparent outline-none focus:outline-none"
       >
         <div
           className="relative w-full h-full mx-auto my-6 md:w-4/6 lg:w-3/6 xl:w-2/5 lg:h-auto md:h-auto "
@@ -75,7 +75,7 @@ function Modal({
               >
                 <button
                   onClick={handleClose}
-                  className="absolute p-1 transition border-0 hover:opacity-70 text-slate-50 left-9"
+                  className="absolute p-1 transition bg-transparent border-0 hover:opacity-70 text-slate-50 left-9 w-fit"
                 >
                   <IoMdClose size={18} />
                 </button>

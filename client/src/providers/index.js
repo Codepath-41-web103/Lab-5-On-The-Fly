@@ -1,3 +1,4 @@
 import { ThemeProvider } from "./ThemeProvider";
 import ToasterProvider from "./ToastProvider";
-export { ThemeProvider, ToasterProvider }
+import { ThemeProvider as PicoTheme } from './PicoThemeProvider'
+export { ThemeProvider, PicoTheme , ToasterProvider }

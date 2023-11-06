@@ -33,7 +33,7 @@ function Button({
   );
 
   return (
-    <FlowbiteButton onClick={onClick} disabled={disabled} className={buttonClasses}>
+    <FlowbiteButton onClick={onClick} disabled={disabled} className={`${buttonClasses}`}>
       {Icon && <Icon size={24} className="md:absolute md:left-4 md:top-3" />}
       <span className="font-normal">{label}</span>
     </FlowbiteButton>
