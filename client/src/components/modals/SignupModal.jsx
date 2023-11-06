@@ -5,17 +5,18 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithPopup,
-  GithubAuthProvider,
+  // GithubAuthProvider,
 } from "firebase/auth";
 import Heading from "../inputs/Heading";
 import Input from "../Inputs/Input";
 import Button from "../Inputs/Button";
 import { FcGoogle } from "react-icons/fc";
-import { BsGithub } from "react-icons/bs";
+// import { BsGithub } from "react-icons/bs";
 
 import Modal from "./Modal";
 import useSignupModal from "../../hooks/useSignupModal";
 import { firebaseAuth } from "../../auth/Firebase";
+import UsePageLoading from "../../hooks/useLoading";
 
 function SignupModal({}) {
   const [email, setEmail] = useState("");
@@ -23,9 +24,8 @@ function SignupModal({}) {
 
   const loginModal = useLoginModal();
   const signupModal = useSignupModal();
-  const [isLoading, setIsLoading] = useState(false);
+  const isLoading = UsePageLoading();
 
-  //* This function handles the google provider through firebase
   const handleGoogle = async () => {
     try {
       await signInWithPopup(firebaseAuth, new GoogleAuthProvider());
@@ -56,6 +56,7 @@ function SignupModal({}) {
       <hr />
       <Input
         id="email"
+        type="email"
         label="Email"
         disabled={isLoading}
         value={email}
@@ -84,12 +85,12 @@ function SignupModal({}) {
         onClick={() => handleGoogle()}
       />
 
-      <div className="text-black text-center mt-4 font-light">
-        <div className="justify-center flex flex-row items-center gap-2">
+      <div className="mt-4 font-light text-center text-black">
+        <div className="flex flex-row items-center justify-center gap-2">
           <div className="">Already have an account?</div>
           <div
             onClick={toggle}
-            className="text-slate-50 cursor-pointer hover:underline"
+            className="cursor-pointer text-slate-50 hover:underline"
           >
             Login
           </div>

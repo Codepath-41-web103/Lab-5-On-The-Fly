@@ -1,57 +1,33 @@
-import React, { useEffect } from "react";
-import NavBar from "../components/main/NavBar";
-import { useAuth } from "../auth/AuthState.js";
-import toast from "react-hot-toast";
-import useSignupModal from "../hooks/useSignupModal";
-import useLoginModal from "../hooks/useLoginModal";
-import { signOut } from "firebase/auth";
-import { firebaseAuth } from "../auth/Firebase";
-
+import React from "react";
+// import { Button } from "flowbite-react";
+import { Layout } from "../components/wrappers/index";
+import { HeaderContainer } from "../components/main/index";
+// import { Section } from "../components/semantics/index";
+// import { Sections } from "../constants/index";
+import "./Home.scss";
 export default function Home() {
-  const signupModal = useSignupModal();
-  const loginModal = useLoginModal();
-  const user = useAuth();
-
-  const handleLogOut = async () => {
-    await signOut(firebaseAuth);
-    toast.success("Logged out successfully");
-  };
-
-  useEffect(() => {
-    console.log("user", user);
-    if (user) {
-      //? If user already logged in, then close both modals
-      signupModal.onClose();
-      loginModal.onClose();
-    } else {
-      //? If User is not logged in then up the signup modal
-      signupModal.onOpen();
-    }
-  }, [user]);
-
   return (
-    <>
-      <div className="text-rose-500">
-        This is home{" "}
-        {user ? (
-          <button
-            onClick={() => {
-              handleLogOut();
-            }}
-            className="text-black font-bold cursor-pointer hover:underline"
+    <Layout>
+      <HeaderContainer />
+      {/* {Sections.map((section, index) => {
+        return (
+          <Section
+            key={index}
+            className={`w-full px-0 py-[4vh] h-fit`}
           >
-            {" "}
-            Logout
-          </button>
-        ) : (
-          <button
-            className="text-black font-bold cursor-pointer hover:underline"
-            onClick={() => signupModal.onOpen()}
-          >
-            Login
-          </button>
-        )}
-      </div>
-    </>
+            <h1>{section.title}</h1>
+            <p>{section.description}</p>
+            <Button
+              className={`bg-primary-500 hover:bg-primary-600 text-white`}
+              onClick={() => {
+                window.location.href = section.link;
+              }}
+            >
+              {section.button}
+            </Button>
+          </Section>
+        );
+      })} */}
+    </Layout>
   );
 }

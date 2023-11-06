@@ -14,7 +14,7 @@ You will need to reference the GitHub Project Management guide in the course por
   - [x] Make sure to add the issues to your project board and to the appropriate milestones
 - [x] Update the status of issues in your project board as you complete them
 - [x] In `readme.md`, check off the features you have completed in this unit by adding a ✅ emoji in front of their title
-  - [ ] Under each feature you have completed, **include a GIF** showing feature functionality
+  - [x] Under each feature you have completed, **include a GIF** showing feature functionality
 - [x] In this document, complete the **Reflection** section below
 
 ## Reflection
@@ -33,7 +33,7 @@ Yes we finished all of our tasks for this week all we need is to add the feature
 
 ### Which features and user stories would you consider “at risk”? How will you change your plan if those items remain “at risk”?
 
-` As a user, I want to receive notifications for new messages, so I don't miss any important updates.` Might be at risk because we are not sure how to implement it yet
+`As a user, I want to receive notifications for new messages, so I don't miss any important updates.` Might be at risk because we are not sure how to implement it yet
 
 ### 5. What additional support will you need in upcoming units as you continue to work on your final project?
 
