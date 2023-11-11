@@ -16,10 +16,11 @@ const createUser = async (user) => {
 export const useAuthMethods = (user, signupModal) => {
   const loginModal = useLoginModal();
   useEffect(() => {
-    console.log("user", user);
+    console.log(user);
     if (user) {
       signupModal.onClose();
       loginModal.onClose();
+      // This is unnecessary, but I'm leaving it here for now
       createUser({
         name: user.displayName,
         email: user.email,

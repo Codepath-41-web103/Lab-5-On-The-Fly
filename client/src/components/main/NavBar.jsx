@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // import { DarkThemeToggle } from 'flowbite-react'
 import { Nav, Menu } from "../semantics/index";
 import toast from "react-hot-toast";
 import { signOut } from "firebase/auth";
 import { firebaseAuth } from "../../auth/Firebase";
-import { useAuthMethods } from "../../utils/utils";
+import { useAuthMethods, getUserProperties } from "../../utils/utils";
 import useSignupModal from "../../hooks/useSignupModal";
 import { useAuth } from "../../auth/AuthState";
 import { Button } from 'flowbite-react';
@@ -15,6 +15,24 @@ import './NavBar.scss'
 const NavBar = () => {
   const user = useAuth();
   const signupModal = useSignupModal();
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+    email: "",
+    avatar_url: "",
+    id: "",
+  });
+
+  useEffect(() => {
+    if (user) {
+      setUserInfo({
+        name: user.displayName,
+        email: user.email,
+        avatar_url: user.photoUrl,
+        id: user.localId,
+      });
+    }
+  }, [user]);
+  
   const handleLogOut = async () => {
     await signOut(firebaseAuth);
     toast.success("Logged out successfully");
@@ -23,7 +41,7 @@ const NavBar = () => {
   // console.log(user.displayName);
   // console.log(user.email);
   // console.log(user.photoUrl);
-
+  
   return (
     <Nav
       className={`flex flex-row justify-between items-center h-[70px] w-[100dvw] sticky top-0 text-lg font-bold m-0 px-[1rem] z-50`}
@@ -42,7 +60,7 @@ const NavBar = () => {
         </li>
         <details role="list" dir="rtl" className={`flex flex-col`}>
           <summary aria-haspopup="listbox" role="link" className="primary">
-            <Avatar img={`${user.photoUrl}`} rounded status="online" statusPosition="bottom-right" />
+            {/* <Avatar img={avatar_url} rounded status="online" statusPosition="bottom-right" /> */}
           </summary>
           <li>
             <button

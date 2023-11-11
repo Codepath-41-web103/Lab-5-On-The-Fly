@@ -1,3 +1,4 @@
+"use client";
 import React from 'react'
 import { Header, Section, Article, Picture } from '../semantics/index'
 import { Button } from 'flowbite-react'
@@ -22,13 +23,13 @@ const HeaderContainer = () => {
           </p>
           <Menu className={`flex flex-row items-center justify-between`}>
             <li className={`mr-auto`}>
-              <Button>
+              <Button href={`/`}>
                 Sign Up
               </Button>
 
             </li>
             <li className={`ml-auto`}>
-              <Button>
+              <Button href={`/dashboard`}>
                 Get Started
               </Button>
             </li>
