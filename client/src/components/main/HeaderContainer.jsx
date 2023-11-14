@@ -1,10 +1,10 @@
 "use client";
-import React from 'react'
-import { Header, Section, Article, Picture } from '../semantics/index'
-import { Button } from 'flowbite-react'
-import { Menu } from '../semantics/index'
-import HeaderContentful from '../../assets/svgs/HeaderContentful'
-import './HeaderContainer.scss'
+import React from "react";
+import { Header, Section, Article, Picture } from "../semantics/index";
+import { Button } from "flowbite-react";
+import { Menu } from "../semantics/index";
+import HeaderContentful from "../../assets/svgs/HeaderContentful";
+import "./HeaderContainer.scss";
 
 const HeaderContainer = () => {
   return (
@@ -19,29 +19,24 @@ const HeaderContainer = () => {
         >
           <h1 className={`text-6xl text-left w-full mb-4`}>Header</h1>
           <p className={`mb-2`}>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid non, ab laboriosam modi iusto quibusdam id perspiciatis repellendus veritatis omnis voluptas enim provident nobis architecto earum obcaecati ut quaerat aliquam?
+            "Join our messaging app for instant connections. Customize your
+            profile, search by username, and exchange real-time messages, access
+            your conversation history for a seamless chatting experience"
           </p>
           <Menu className={`flex flex-row items-center justify-between`}>
             <li className={`mr-auto`}>
-              <Button href={`/`}>
-                Sign Up
-              </Button>
-
+              <Button href={`/`}>Sign Up</Button>
             </li>
             <li className={`ml-auto`}>
-              <Button href={`/dashboard`}>
-                Get Started
-              </Button>
+              <Button href={`/chats`}>Get Started</Button>
             </li>
           </Menu>
         </Article>
-        <Picture
-          className={`flex items-center justify-center w-fit`}
-        >
+        <Picture className={`flex items-center justify-center w-fit`}>
           <HeaderContentful className={`w-full h-full`} />
         </Picture>
       </Section>
     </Header>
-  )
-}
-export default HeaderContainer
+  );
+};
+export default HeaderContainer;
