@@ -46,7 +46,7 @@ const NavBar = () => {
     <Nav
       className={`flex flex-row justify-between items-center h-[70px] w-[100dvw] sticky top-0 text-lg font-bold m-0 px-[1rem] z-30`}
     >
-      <Menu className={`flex flex-row`}>
+      <Menu className={`flex flex-row mt-5`}>
         <li className="flex ">
           <img src="/images/Chatat.png" alt="logo" width={100} height={100} />
           <span>Chatat</span>
@@ -64,7 +64,7 @@ const NavBar = () => {
           </summary>
           <li>
             <button
-              // className="font-bold text-black cursor-pointer hover:underline"
+              className="font-bold text-white cursor-pointer hover:underline"
               onClick={() => {
                 window.location.href = "/dashboard";
               }}
@@ -78,20 +78,19 @@ const NavBar = () => {
               onClick={() => {
                 handleLogOut();
               }}
-              // className="font-bold text-black cursor-pointer hover:underline"
+              className="font-bold text-white cursor-pointer hover:underline"
             >
               {" "}
               Logout
             </button>
           ) : (
             <button
-              // className="font-bold text-black cursor-pointer hover:underline"
+              className="font-bold text-white cursor-pointer hover:underline"
               onClick={() => {
                 signupModal.onOpen();
-                console.log("clicked");
               }}
             >
-              Login
+              Signup
             </button>
           )}
         </details>
