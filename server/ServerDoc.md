@@ -6,7 +6,7 @@ We only have two tables, users, and chats. Since the Message Table will be in a 
 
 ## Users API
 
-- API Base URL: `localhost:3001/api/users`
+- API Base URL: `https://lab-5-on-the-fly-api.vercel.app/api/users`
 
 1. This API endpoint will be useful for users to search for other users by their email.
 
@@ -56,7 +56,7 @@ We only have two tables, users, and chats. Since the Message Table will be in a 
 
 ## Chats API
 
-- API Base URL: `localhost:3001/api/chats`
+- API Base URL: `https://lab-5-on-the-fly-api.vercel.app/api/chats`
 
 1. This API endpoint gets all the chats by the user ID.
 

@@ -19,7 +19,7 @@ function MyChats({
   };
   const getAllChat = async () => {
     const chats = await axios.get(
-      `http://localhost:3001/api/chats/user/${loginUser.localId}`,
+      `https://lab-5-on-the-fly-api.vercel.app/api/chats/user/${loginUser.localId}`,
     );
     setMyChats(chats.data);
   };

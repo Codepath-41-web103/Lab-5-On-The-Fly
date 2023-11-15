@@ -85,7 +85,7 @@ function CurrentChats({
   const getInfo = async () => {
     console.log("getting user info");
     const result = await axios.get(
-      `http://localhost:3001/api/users/${loginUser.localId}`,
+      `https://lab-5-on-the-fly-api.vercel.app/api/users/${loginUser.localId}`,
     );
 
     setUserInfo(result.data[0]);
@@ -157,7 +157,7 @@ function CurrentChats({
           "Introduce yourself !!! Dont be shy"
         )}
       </div>
-      <div className="bottom-0 px-4 flex">
+      <div className="bottom-0 flex px-4">
         <MessageInput
           id={"message"}
           value={newMessage}

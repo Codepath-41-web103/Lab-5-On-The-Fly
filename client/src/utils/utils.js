@@ -4,9 +4,9 @@ import axios from "axios";
 
 const createUser = async (user) => {
   try {
-    const response = await axios.post("http://localhost:3001/api/users", user);
+    const response = await axios.post("https://lab-5-on-the-fly-api.vercel.app/api/users", user);
     const getUser = await axios.get(
-      `http://localhost:3001/api/users/${user.id}`,
+      `https://lab-5-on-the-fly-api.vercel.app/api/users/${user.id}`,
     );
     console.log("response", getUser);
   } catch (error) {
