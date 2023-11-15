@@ -9,7 +9,7 @@ import {
   GithubAuthProvider,
 } from "firebase/auth";
 
-import Heading from "../inputs/Heading";
+import Heading from "../Inputs/Heading";
 import Input from "../Inputs/Input";
 import Button from "../Inputs/Button";
 import { FcGoogle } from "react-icons/fc";
