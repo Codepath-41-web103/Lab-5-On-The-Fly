@@ -1,16 +1,13 @@
 import { Routes, Route } from "react-router-dom";
-import {
-  Dashboard, Users,
-  Chats,
-  Home,
-} from "./pages/index";
+import { Dashboard, Users, Chats, Home } from "./pages/index";
 import NotFound from "./components/dom-states/NotFound";
-import '@picocss/pico'
+import "@picocss/pico";
 import "./App.scss";
-
+import { ToasterProvider } from "./providers";
 const App = () => {
   return (
     <>
+      <ToasterProvider />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />

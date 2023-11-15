@@ -16,6 +16,14 @@ export default function UserSearchCard({ user, getChat }) {
         recepient_email: user.email,
         recepient_avatar_url: user.avatar_url,
       });
+      await axios.post(`http://localhost:3001/api/chats`, {
+        sender_id: user.id,
+        recepient_id: loginUser.localId,
+        chat_id: roomID,
+        recepient_name: loginUser.displayName || loginUser.email.split("@")[0],
+        recepient_email: loginUser.email,
+        recepient_avatar_url: loginUser.photoUrl,
+      });
       const newChats = await axios.get(
         `http://localhost:3001/api/chats/user/${loginUser.localId}`,
       );

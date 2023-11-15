@@ -86,7 +86,7 @@ function LoginModal({}) {
       />
 
       <div className="mt-4 font-light text-center text-black">
-        <div className="flex flex-row items-center justify-center gap-2">
+        <div className="flex flex-row items-center justify-center gap-2 text-white">
           <div className="">First time using Chatat?</div>
           <div
             onClick={toggle}

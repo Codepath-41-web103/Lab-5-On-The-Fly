@@ -5,9 +5,12 @@ import { HeaderContainer } from "../components/main/index";
 // import { Section } from "../components/semantics/index";
 // import { Sections } from "../constants/index";
 import "./Home.scss";
+import { LoginModal, SignupModal } from "../components/modals";
 export default function Home() {
   return (
     <Layout>
+      <SignupModal />
+      <LoginModal />
       <HeaderContainer />
       {/* {Sections.map((section, index) => {
         return (

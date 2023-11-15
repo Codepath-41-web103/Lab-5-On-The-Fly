@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import ToasterProvider from "../providers/index";
 import { LoginModal, SignupModal } from "../components/modals/index";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
 const AuthWrapper = ({ children }) => {
-  const [session, setSession] = useState(null)
+  const [session, setSession] = useState(null);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session)
-    })
+      setSession(session);
+    });
 
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
-    })
+      setSession(session);
+    });
 
-    return () => subscription.unsubscribe()
-  }, [])
+    return () => subscription.unsubscribe();
+  }, []);
 
   const [users, setUsers] = useState([]);
   const [destinations, setDestinations] = useState([]);
@@ -41,16 +41,14 @@ const AuthWrapper = ({ children }) => {
         <LoginModal />
         <SignupModal />
       </>
-    )
+    );
   } else {
-    return (
-      children
-    )
+    return children;
   }
-}
+};
 
 AuthWrapper.protoTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default AuthWrapper
+export default AuthWrapper;
