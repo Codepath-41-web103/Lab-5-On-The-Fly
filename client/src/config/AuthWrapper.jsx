@@ -25,9 +25,11 @@ const AuthWrapper = ({ children }) => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const response = await fetch("https://lab-5-on-the-fly-api.vercel.app/api/users");
+      const response = await fetch(
+        "https://lab-5-on-the-fly-api.vercel.app/api/users",
+      );
       const data = await response.json();
-      console.log(data);
+
       setUsers(data);
     };
 

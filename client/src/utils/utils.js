@@ -8,7 +8,6 @@ const createUser = async (user) => {
     const getUser = await axios.get(
       `https://lab-5-on-the-fly-api.vercel.app/api/users/${user.id}`,
     );
-    console.log("response", getUser);
   } catch (error) {
     console.log("User creation error", error);
   }
@@ -16,7 +15,6 @@ const createUser = async (user) => {
 export const useAuthMethods = (user, signupModal) => {
   const loginModal = useLoginModal();
   useEffect(() => {
-    console.log(user);
     if (user) {
       signupModal.onClose();
       loginModal.onClose();

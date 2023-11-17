@@ -21,13 +21,27 @@ function ViewProfileModal({}) {
     const result = await axios.get(
       `https://lab-5-on-the-fly-api.vercel.app/api/users/${loginUser.localId}`,
     );
-    console.log("the result", result);
     const user = result.data[0];
     setUserInfo(user);
-    console.log("the user", user);
     setPhotoUrl(user.avatar_url);
     setName(user.name);
     setBio(user.bio);
+  };
+  const handleEdit = async () => {
+    try {
+      await axios.patch(
+        `https://lab-5-on-the-fly-api.vercel.app/api/users/${loginUser.localId}`,
+        {
+          avatar_url: photoUrl,
+          name,
+          bio,
+        },
+      );
+      toast.success("Profile updated");
+      viewProfile.onClose();
+    } catch (error) {
+      toast.error("Error updating profile");
+    }
   };
 
   useEffect(() => {
@@ -105,7 +119,7 @@ function ViewProfileModal({}) {
       title="Profile"
       actionLabel="Edit"
       onClose={viewProfile.onClose}
-      onSubmit={() => {}}
+      onSubmit={handleEdit}
       body={bodyContent}
       footer={footerContent}
     />
