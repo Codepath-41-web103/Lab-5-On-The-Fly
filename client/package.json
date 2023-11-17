@@ -12,6 +12,8 @@
   "author": "Mike Odnis",
   "license": "ISC",
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@mui/material": "^5.14.16",
     "@picocss/pico": "^1.5.10",
     "@reduxjs/toolkit": "^1.9.7",
     "@types/react": "^18.2.34",
