@@ -6,8 +6,8 @@ import axios from "axios";
 import { Avatar } from "flowbite-react";
 import { useAuth } from "../../auth/AuthState";
 import UserMenu from "./UserMenu";
-export default function UserProfile({ }) {
-  const [userInfo, setUserInfo] = useState({});
+export default function UserProfile({}) {
+  const [userInfo, setUserInfo] = useState(null);
   const user = useAuth();
 
   const signup = useSignupModal();
@@ -26,18 +26,20 @@ export default function UserProfile({ }) {
   useEffect(() => {
     if (user) {
       getInfo();
+    } else {
+      setUserInfo(null);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
   // console.log("the user info", userInfo);
   // console.log(userInfo.avatar_url);
   return (
-    <>      
-      <div className="z-40 flex items-center justify-center">
-        <div className="flex items-center justify-center mx-1uy">
+    <div className="z-40 flex items-center justify-center">
+      {userInfo?.avatar_url ? (
+        <div className="mx-1 ">
           <Menu isLazy>
             <MenuButton>
-              <Avatar className="rounded-full w-9 h-9" src={userInfo.avatar_url} rounded status="online" statusPosition="bottom-right" />
+              <img className="rounded-full w-9 h-9" src={userInfo.avatar_url} />
             </MenuButton>
             <UserMenu />
           </Menu>

@@ -4,11 +4,10 @@ import axios from "axios";
 
 const createUser = async (user) => {
   try {
-    await axios.post("http://localhost:3001/api/users", user);
+    await axios.post("https://lab-5-on-the-fly-api.vercel.app/api/users", user);
     const getUser = await axios.get(
       `https://lab-5-on-the-fly-api.vercel.app/api/users/${user.id}`,
     );
-    console.log("response", getUser);
   } catch (error) {
     console.log("User creation error", error);
   }
@@ -16,13 +15,12 @@ const createUser = async (user) => {
 export const useAuthMethods = (user, signupModal) => {
   const loginModal = useLoginModal();
   useEffect(() => {
-    console.log(user);
     if (user) {
       signupModal.onClose();
       loginModal.onClose();
       // This is unnecessary, but I'm leaving it here for now
       createUser({
-        name: user.displayName,
+        name: user.displayName || user.email.split("@")[0],
         email: user.email,
         avatar_url: user.photoUrl,
         bio: "",

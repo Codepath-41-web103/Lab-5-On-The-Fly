@@ -49,6 +49,7 @@ const updateUserbyId = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
     const { name, avatar_url, bio } = req.body;
+    console.log("name avatar_url bio", name, avatar_url, bio);
     const results = await pool.query(
       `UPDATE users
       SET name = $1,
@@ -57,7 +58,7 @@ const updateUserbyId = async (req, res) => {
       WHERE id = $4`,
       [name, avatar_url, bio, id],
     );
-    res.status(200).json(results.rows[0]);
+    res.status(200).json({ name, avatar_url, bio });
   } catch (error) {
     res.status(409).json({ error: error.message });
   }
