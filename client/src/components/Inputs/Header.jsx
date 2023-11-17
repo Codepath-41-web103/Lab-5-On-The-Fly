@@ -20,7 +20,9 @@ export default function Header({
       >
         <AiOutlineLeft size={26} />
       </div>
+
       <div className="flex w-1/2 mx-auto">
+        <img className="rounded-full w-12 h-12" src={photo} />
         <div className="">
           <div className="text-2xl mx-2  font-semibold">{name}</div>
           <div className=" mx-2 text-gray-800 text-sm  font-semibold">

@@ -3,6 +3,8 @@ import UserSearch from "./user/UserSearch";
 import { useAuth } from "../../../auth/AuthState.js";
 import axios from "axios";
 import ChatsContainer from "./ChatsContainer";
+import { IoReload } from "react-icons/io5";
+import toast from "react-hot-toast";
 function MyChats({
   selected,
   setSelected,
@@ -38,6 +40,15 @@ function MyChats({
        ${!showCurrent && !hide ? "md:col-span-3" : "md:col-span-10 "} `}
     >
       <UserSearch getChat={getChat} />
+      <div
+        onClick={() => {
+          getAllChat();
+          toast.success("Reloaded Chats Sucessfully");
+        }}
+        className="text-white font-bold text-end flex justify-end px-6 cursor-pointer"
+      >
+        <IoReload size={20} />
+      </div>
       <ChatsContainer
         setHide={setHide}
         setShowCurrent={setShowCurrent}

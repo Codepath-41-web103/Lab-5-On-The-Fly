@@ -19,6 +19,7 @@ export default function UserProfile({}) {
       `https://lab-5-on-the-fly-api.vercel.app/api/users/${user.localId}`,
     );
     console.log("the result", result);
+    console.log("the user info ", result.data[0]);
 
     setUserInfo(result.data[0]);
   };
