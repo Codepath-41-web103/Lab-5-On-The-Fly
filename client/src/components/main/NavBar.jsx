@@ -11,6 +11,7 @@ import { Button } from "flowbite-react";
 import { Avatar } from "flowbite-react";
 import { HiCog, HiCurrencyDollar, HiLogout, HiViewGrid } from "react-icons/hi";
 import "./NavBar.scss";
+import UserProfile from "../users/UserProfile";
 
 const NavBar = () => {
   const user = useAuth();
@@ -47,53 +48,18 @@ const NavBar = () => {
       className={`flex flex-row justify-between items-center h-[70px] w-[100dvw] sticky top-0 text-lg font-bold m-0 px-[1rem] z-30`}
     >
       <Menu className={`flex flex-row mt-5`}>
-        <li className="flex ">
+        <li
+          onClick={() => {
+            window.location.href = "/";
+          }}
+          className="flex "
+        >
           <img src="/images/Chatat.png" alt="logo" width={100} height={100} />
           <span>Chatat</span>
         </li>
       </Menu>
-      <Menu className={`flex`}>
-        <li>
-          <Button>
-            <HiViewGrid size={20} />
-          </Button>
-        </li>
-        <details role="list" dir="rtl" className={`flex flex-col`}>
-          <summary aria-haspopup="listbox" role="link" className="primary">
-            {/* <Avatar img={avatar_url} rounded status="online" statusPosition="bottom-right" /> */}
-          </summary>
-          <li>
-            <button
-              className="font-bold text-white cursor-pointer hover:underline"
-              onClick={() => {
-                window.location.href = "/dashboard";
-              }}
-            >
-              Dashboard
-            </button>
-          </li>
-          <hr />
-          {user ? (
-            <button
-              onClick={() => {
-                handleLogOut();
-              }}
-              className="font-bold text-white cursor-pointer hover:underline"
-            >
-              {" "}
-              Logout
-            </button>
-          ) : (
-            <button
-              className="font-bold text-white cursor-pointer hover:underline"
-              onClick={() => {
-                signupModal.onOpen();
-              }}
-            >
-              Signup
-            </button>
-          )}
-        </details>
+      <Menu>
+        <UserProfile />
       </Menu>
     </Nav>
   );
