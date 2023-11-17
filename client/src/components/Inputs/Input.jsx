@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 function Input({ id, label, type, stateChange, value }) {
   return (
     <div className="relative w-full my-5">
-      <input 
+      <input
         onChange={(e) => stateChange(e.target.value)}
         value={value}
         id={id}
@@ -23,7 +23,6 @@ function Input({ id, label, type, stateChange, value }) {
 
 Input.propTypes = {
   id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   stateChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,

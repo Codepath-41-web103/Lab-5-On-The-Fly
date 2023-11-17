@@ -4,10 +4,12 @@ import NotFound from "./components/dom-states/NotFound";
 import "@picocss/pico";
 import "./App.scss";
 import { ToasterProvider } from "./providers";
+import ViewProfileModal from "./components/modals/ViewProfile";
 const App = () => {
   return (
     <>
       <ToasterProvider />
+      <ViewProfileModal />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />

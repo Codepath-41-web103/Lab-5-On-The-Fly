@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { AiFillStar } from "react-icons/ai";
 // chat_id TEXT NOT NULL DEFAULT '',
@@ -8,11 +9,31 @@ import { AiFillStar } from "react-icons/ai";
 // recepient_avatar_url TEXT NOT NULL DEFAULT '',
 // sender_id TEXT NOT NULL DEFAULT ''
 function ChatsCard({ user, setSelected, selected, setHide, setShowCurrent }) {
+  const [userInfo, setUserInfo] = useState(null);
+
   const setSelectedAndCurrent = () => {
     setSelected(user);
     setShowCurrent(true);
     setHide(false);
   };
+
+  const handleUserInfo = async () => {
+    console.log("the user id", user);
+    const result = await axios.get(
+      `https://lab-5-on-the-fly-api.vercel.app/api/users/${user.recepient_id}`,
+    );
+
+    console.log("the result", result);
+    user = result.data[0];
+    console.log("the chat", user);
+    setUserInfo(user);
+  };
+
+  useEffect(() => {
+    if (user) {
+      handleUserInfo();
+    }
+  }, [user]);
 
   return (
     <div
@@ -23,6 +44,10 @@ function ChatsCard({ user, setSelected, selected, setHide, setShowCurrent }) {
           : "bg-slate-300"
       } p-1 rounded-lg`}
     >
+      {userInfo && (
+        <img className="rounded-full w-8 h-8" src={userInfo.avatar_url} />
+      )}
+
       <div className={`mx-1`}>
         <div className="flex  ">
           <div className="text-xs  font-semibold">{user.recepient_name}</div>

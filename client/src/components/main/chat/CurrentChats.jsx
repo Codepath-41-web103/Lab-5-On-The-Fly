@@ -24,7 +24,7 @@ function CurrentChats({
   const roomId = selected.chat_id;
 
   const messagesRef = collection(db, "messages");
-  console.log("the room ID", roomId);
+
   const queryRef = query(messagesRef, where("roomId", "==", roomId));
   const [messages, setMessages] = useState([]);
 
@@ -35,7 +35,7 @@ function CurrentChats({
   const handleSubmit = async (e) => {
     if (newMessage === "") return;
     const message = newMessage.length !== 0 ? newMessage : null;
-    console.log("the user info", userInfo);
+
     await addDoc(messagesRef, {
       text: message,
       sender: {
@@ -56,7 +56,7 @@ function CurrentChats({
     if (e === "Enter") {
       if (newMessage === "") return;
       const message = newMessage.length !== 0 ? newMessage : null;
-      console.log("the user info", userInfo);
+
       await addDoc(messagesRef, {
         text: message,
         sender: {
@@ -83,7 +83,6 @@ function CurrentChats({
   }, [selected]);
 
   const getInfo = async () => {
-    console.log("getting user info");
     const result = await axios.get(
       `https://lab-5-on-the-fly-api.vercel.app/api/users/${loginUser.localId}`,
     );
