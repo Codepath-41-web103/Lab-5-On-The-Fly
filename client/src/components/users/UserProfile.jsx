@@ -6,7 +6,7 @@ import axios from "axios";
 import { useAuth } from "../../auth/AuthState";
 import UserMenu from "./UserMenu";
 export default function UserProfile({}) {
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState(null);
   const user = useAuth();
 
   const signup = useSignupModal();
@@ -25,17 +25,25 @@ export default function UserProfile({}) {
   useEffect(() => {
     if (user) {
       getInfo();
+    } else {
+      setUserInfo(null);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   return (
     <div className="flex justify-center items-center z-40">
-      {userInfo?.avatar_url ? (
+      {userInfo ? (
         <div className="mx-1 ">
           <Menu isLazy>
             <MenuButton>
-              <img className="w-9 h-9 rounded-full" src={userInfo.avatar_url} />
+              <img
+                className="w-9 h-9 rounded-full"
+                src={
+                  userInfo.avatar_url ||
+                  "https://tse1.mm.bing.net/th?id=OIP.Ghae4OEdb4UmC3hkqpFvLAHaGd&pid=Api&rs=1&c=1&qlt=95&w=132&h=115"
+                }
+              />
             </MenuButton>
             <UserMenu />
           </Menu>

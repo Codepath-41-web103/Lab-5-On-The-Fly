@@ -6,11 +6,13 @@ import { HeaderContainer } from "../components/main/index";
 // import { Sections } from "../constants/index";
 import "./Home.scss";
 import { LoginModal, SignupModal } from "../components/modals";
+import ViewProfileModal from "../components/modals/ViewProfile";
 export default function Home() {
   return (
     <Layout>
       <SignupModal />
       <LoginModal />
+      <ViewProfileModal />
       <HeaderContainer />
       {/* {Sections.map((section, index) => {
         return (
