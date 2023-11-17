@@ -20,7 +20,7 @@ export const useAuthMethods = (user, signupModal) => {
       loginModal.onClose();
       // This is unnecessary, but I'm leaving it here for now
       createUser({
-        name: user.displayName,
+        name: user.displayName || user.email.split("@")[0],
         email: user.email,
         avatar_url: user.photoUrl,
         bio: "",
