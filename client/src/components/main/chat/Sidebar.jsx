@@ -7,6 +7,6 @@ function Sidebar() {
       
     </Section>
   )
-}
+}xs
 
 export default Sidebar

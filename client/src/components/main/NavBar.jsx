@@ -9,7 +9,7 @@ import useSignupModal from "../../hooks/useSignupModal";
 import { useAuth } from "../../auth/AuthState";
 import { Button } from "flowbite-react";
 import { Avatar } from "flowbite-react";
-import { HiCog, HiCurrencyDollar, HiLogout, HiViewGrid } from "react-icons/hi";
+import { HiLogout, HiViewGrid } from "react-icons/hi";
 import "./NavBar.scss";
 import UserProfile from "../users/UserProfile";
 
@@ -58,8 +58,44 @@ const NavBar = () => {
           <span>Chatat</span>
         </li>
       </Menu>
-      <Menu>
-        <UserProfile />
+      <Menu className={`flex items-center justify-center`}>
+        <li className={`flex items-center justify-center`}>
+          <Button
+            href={`/dashboard`}
+            className={``}
+          >
+            <HiViewGrid size={20} />
+          </Button>
+        </li>
+        {user ? (
+          <>
+            <li>
+              <Button
+                onClick={() => {
+                  handleLogOut();
+                }}
+                className="font-bold text-white cursor-pointer hover:underline"
+              >
+                {" "}
+                Logout
+              </Button>
+            </li>
+            <li>
+              <UserProfile />
+            </li>
+          </>
+        ) : (
+          <li>
+            <Button
+              className="font-bold text-white cursor-pointer hover:underline"
+              onClick={() => {
+                signupModal.onOpen();
+              }}
+            >
+              Signup
+            </Button>
+          </li>
+        )}
       </Menu>
     </Nav>
   );
