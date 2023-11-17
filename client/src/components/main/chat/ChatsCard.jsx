@@ -45,7 +45,13 @@ function ChatsCard({ user, setSelected, selected, setHide, setShowCurrent }) {
       } p-1 rounded-lg`}
     >
       {userInfo && (
-        <img className="rounded-full w-8 h-8" src={userInfo.avatar_url} />
+        <img
+          className="rounded-full w-8 h-8"
+          src={
+            userInfo.avatar_url ||
+            "https://tse1.mm.bing.net/th?id=OIP.Ghae4OEdb4UmC3hkqpFvLAHaGd&pid=Api&rs=1&c=1&qlt=95&w=132&h=115"
+          }
+        />
       )}
 
       <div className={`mx-1`}>
