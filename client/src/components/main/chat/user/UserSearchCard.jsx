@@ -9,22 +9,36 @@ export default function UserSearchCard({ user, getChat }) {
 
   const updateChat = async () => {
     try {
+      console.log("Doing first API", {
+        sender_id: loginUser.localId,
+        recepient_id: user.id,
+        chat_id: roomID,
+        recepient_name: user.name,
+        recepient_email: user.email,
+        recepient_avatar_url:
+          user.avatar_url ||
+          "https://tse1.mm.bing.net/th?id=OIP.Ghae4OEdb4UmC3hkqpFvLAHaGd&pid=Api&rs=1&c=1&qlt=95&w=132&h=115",
+      });
       await axios.post(`https://lab-5-on-the-fly-api.vercel.app/api/chats`, {
         sender_id: loginUser.localId,
         recepient_id: user.id,
         chat_id: roomID,
         recepient_name: user.name,
         recepient_email: user.email,
-        recepient_avatar_url: user.avatar_url,
+        recepient_avatar_url:
+          user.avatar_url ||
+          "https://tse1.mm.bing.net/th?id=OIP.Ghae4OEdb4UmC3hkqpFvLAHaGd&pid=Api&rs=1&c=1&qlt=95&w=132&h=115",
       });
+      console.log("Doing second API");
       await axios.post(`https://lab-5-on-the-fly-api.vercel.app/api/chats`, {
         sender_id: user.id,
         recepient_id: loginUser.localId,
         chat_id: roomID,
         recepient_name: loginUser.displayName || loginUser.email.split("@")[0],
         recepient_email: loginUser.email,
-        recepient_avatar_url: loginUser.photoUrl,
+        recepient_avatar_url: loginUser.photoUrl || null,
       });
+      console.log("Doing third API");
 
       const newChats = await axios.get(
         `https://lab-5-on-the-fly-api.vercel.app/api/chats/user/${loginUser.localId}`,
@@ -33,7 +47,7 @@ export default function UserSearchCard({ user, getChat }) {
       toast.success("Chat Created");
       return;
     } catch (error) {
-      console.log("Error Creating Chat");
+      console.log("Error Creating Chat", error);
     }
   };
 
