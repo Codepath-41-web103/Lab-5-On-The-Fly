@@ -9,7 +9,7 @@ import useSignupModal from "../../hooks/useSignupModal";
 import { useAuth } from "../../auth/AuthState";
 import { Button } from "flowbite-react";
 import { Avatar } from "flowbite-react";
-import { HiCog, HiCurrencyDollar, HiLogout, HiViewGrid } from "react-icons/hi";
+import { HiLogout, HiViewGrid } from "react-icons/hi";
 import "./NavBar.scss";
 
 const NavBar = () => {
@@ -52,48 +52,44 @@ const NavBar = () => {
           <span>Chatat</span>
         </li>
       </Menu>
-      <Menu className={`flex`}>
-        <li>
-          <Button>
+      <Menu className={`flex items-center justify-center`}>
+        <li className={`flex items-center justify-center`}>
+          <Button
+            href={`/dashboard`}
+            className={``}
+          >
             <HiViewGrid size={20} />
           </Button>
         </li>
-        <details role="list" dir="rtl" className={`flex flex-col`}>
-          <summary aria-haspopup="listbox" role="link" className="primary">
-            {/* <Avatar img={avatar_url} rounded status="online" statusPosition="bottom-right" /> */}
-          </summary>
+        {user ? (
+          <>
+            <li>
+              <Button
+                onClick={() => {
+                  handleLogOut();
+                }}
+                className="font-bold text-white cursor-pointer hover:underline"
+              >
+                {" "}
+                Logout
+              </Button>
+            </li>
+            <li>
+              <Avatar img={userInfo.avatar_url} rounded status="online" statusPosition="bottom-right" />
+            </li>
+          </>
+        ) : (
           <li>
-            <button
-              className="font-bold text-white cursor-pointer hover:underline"
-              onClick={() => {
-                window.location.href = "/dashboard";
-              }}
-            >
-              Dashboard
-            </button>
-          </li>
-          <hr />
-          {user ? (
-            <button
-              onClick={() => {
-                handleLogOut();
-              }}
-              className="font-bold text-white cursor-pointer hover:underline"
-            >
-              {" "}
-              Logout
-            </button>
-          ) : (
-            <button
+            <Button
               className="font-bold text-white cursor-pointer hover:underline"
               onClick={() => {
                 signupModal.onOpen();
               }}
             >
               Signup
-            </button>
-          )}
-        </details>
+            </Button>
+          </li>
+        )}
       </Menu>
     </Nav>
   );

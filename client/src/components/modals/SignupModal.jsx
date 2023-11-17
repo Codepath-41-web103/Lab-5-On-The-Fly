@@ -13,7 +13,7 @@ import Button from "../Inputs/Button";
 import { FcGoogle } from "react-icons/fc";
 // import { BsGithub } from "react-icons/bs";
 
-import Modal from "./Modal";
+import Modal from "./AuthModal";
 import useSignupModal from "../../hooks/useSignupModal";
 import { firebaseAuth } from "../../auth/Firebase";
 import UsePageLoading from "../../hooks/useLoading";

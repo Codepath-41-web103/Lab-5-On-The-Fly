@@ -1,160 +1,36 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { IoMdClose } from "react-icons/io";
-import Button from "../Inputs/Button";
-import PropTypes from "prop-types";
+import { useCallback, useRef } from "react"
+import { Article, Section } from "../semantics/index"
+import PropTypes from "prop-types"
+import { useNavigate } from "react-router-dom"
+import { Button } from "flowbite-react"
 
-function Modal({
-  isOpen,
-  onClose,
-  onSubmit,
-  title,
-  footer,
-  body,
-  actionLabel,
-  disabled,
-  secondaryAction,
-  secondaryLabel,
-}) {
-  const [showModal, setShowModal] = useState(isOpen);
-
-  useEffect(() => {
-    setShowModal(isOpen);
-  }, [isOpen]);
-
-  const handleClose = useCallback(() => {
-    if (disabled) {
-      return;
+const Modal = ({children}) => {
+  const overlay = useRef<HTMLDivElement>(null)
+  const wrapper = useRef<HTMLArticleElement>(null)
+  const navigate = useNavigate();
+  const onDismiss = useCallback(() => {
+    navigate('/');
+  }, [history]);
+  const handleClick = useCallback((e) => {
+    if((e.target === overlay.current) && onDismiss) {
+      onDismiss()
     }
-    setShowModal(false);
-    setTimeout(() => {
-      onClose();
-    }, 300);
-  }, [disabled, onClose]);
-
-  const handleSubmit = useCallback(() => {
-    if (disabled) {
-      return;
-    }
-    onSubmit();
-  }, [disabled, onSubmit]);
-
-  const handleSecondaryAction = useCallback(() => {
-    if (disabled || !secondaryAction) {
-      return;
-    }
-    secondaryAction();
-  }, [disabled, secondaryAction]);
-  if (!isOpen) {
-    return null;
-  }
+  }, [onDismiss, overlay]);
 
   return (
-    <>
-      <div
-        className="justify-center
-        items-center
-        flex
-        overflow-x-hidden
-        overflow-y-auto
-        fixed inset-0
-        z-50
-        outline-none
-        focus:outline-none
-        bg-black
-        "
-      >
-        <div
-          className="relative
-          w-full
-          md:w-4/6
-          lg:w-3/6
-          xl:w-2/5
-          my-6
-          mx-auto
-          h-full
-          lg:h-auto
-          md:h-auto
-        "
-        >
-          <div
-            className={`translate duration-300 h-full ${
-              showModal ? "translate-y-0" : "translate-y-full"
-            } ${showModal ? "opacity-100" : "opacity-0"}`}
-          >
-            <div
-              className="translate
-              h-full
-              lg:h-auto
-              md:h-auto
-              border-0
-              rounded-lg
-              shadow-lg
-              relative
-              flex-cols
-              w-full
-              bg-[#000000]
-              outline-none
-              focus:outline-none"
-            >
-              <div
-                className="flex
-              items-center
-              p-6
-              rounded-t
-              justify-center
-              relative
-              borber-b-[1px]"
-              >
-                <button
-                  onClick={handleClose}
-                  className="absolute p-1 transition bg-transparent border-0 hover:opacity-70 text-slate-50 left-9 w-fit"
-                >
-                  <IoMdClose size={18} />
-                </button>
-                <div className="text-lg font-semibold text-slate-50 ">
-                  {title}
-                </div>
-                <img
-                  className="absolute filter brightness-0 invert right-9"
-                  width={20}
-                  height={20}
-                  src={`/images/Chatat.png`}
-                  alt="Logo"
-                />
-              </div>
-              <div className="relative flex-auto p-6">{body}</div>
-              <div className="flex flex-col gap-2 p-6">
-                <div className="flex flex-row items-center w-full gap-4">
-                  {secondaryAction && secondaryLabel && (
-                    <Button
-                      outline
-                      label={secondaryLabel}
-                      onClick={handleSecondaryAction}
-                    />
-                  )}
-                  <Button outline label={actionLabel} onClick={handleSubmit} />
-                </div>
-                {footer}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
+    <Section ref={overlay} className="modal" onClick={handleClick}>
+        <Button type="button" onClick={onDismiss} className="absolute top-4 right-8">
+          <img src={`/close.svg`} width={17} height={17} alt="close"/>
+        </Button> 
+      <Article ref={wrapper} className="modal_wrapper">
+        {children}
+      </Article>
+    </Section>
+  )
 }
 
 Modal.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired,
-  footer: PropTypes.node,
-  body: PropTypes.node.isRequired,
-  actionLabel: PropTypes.string.isRequired,
-  disabled: PropTypes.bool,
-  secondaryAction: PropTypes.func,
-  secondaryLabel: PropTypes.string,
-};
+  children: PropTypes.node.isRequired,
+}
 
-export default Modal;
+export default Modal
