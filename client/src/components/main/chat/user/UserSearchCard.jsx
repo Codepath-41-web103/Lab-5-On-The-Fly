@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../../../auth/AuthState";
+import toast from "react-hot-toast";
 
 export default function UserSearchCard({ user, getChat }) {
   const [roomID, setRoomID] = useState("");
@@ -24,10 +25,12 @@ export default function UserSearchCard({ user, getChat }) {
         recepient_email: loginUser.email,
         recepient_avatar_url: loginUser.photoUrl,
       });
+
       const newChats = await axios.get(
         `https://lab-5-on-the-fly-api.vercel.app/api/chats/user/${loginUser.localId}`,
       );
       getChat(newChats.data);
+      toast.success("Chat Created");
       return;
     } catch (error) {
       console.log("Error Creating Chat");
