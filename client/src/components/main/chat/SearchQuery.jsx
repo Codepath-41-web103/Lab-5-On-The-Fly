@@ -9,7 +9,7 @@ function SearchQuery({ query, hide, getChat, setHide }) {
     if (!query) return;
 
     const users = await axios.get(
-      `http://localhost:3001/api/users/search/${query}`,
+      `https://lab-5-on-the-fly-api.vercel.app/api/users/search/${query}`,
     );
 
     setResults(users.data);

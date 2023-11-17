@@ -8,7 +8,7 @@ export default function UserSearchCard({ user, getChat }) {
 
   const updateChat = async () => {
     try {
-      await axios.post(`http://localhost:3001/api/chats`, {
+      await axios.post(`https://lab-5-on-the-fly-api.vercel.app/api/chats`, {
         sender_id: loginUser.localId,
         recepient_id: user.id,
         chat_id: roomID,
@@ -16,7 +16,7 @@ export default function UserSearchCard({ user, getChat }) {
         recepient_email: user.email,
         recepient_avatar_url: user.avatar_url,
       });
-      await axios.post(`http://localhost:3001/api/chats`, {
+      await axios.post(`https://lab-5-on-the-fly-api.vercel.app/api/chats`, {
         sender_id: user.id,
         recepient_id: loginUser.localId,
         chat_id: roomID,
@@ -25,7 +25,7 @@ export default function UserSearchCard({ user, getChat }) {
         recepient_avatar_url: loginUser.photoUrl,
       });
       const newChats = await axios.get(
-        `http://localhost:3001/api/chats/user/${loginUser.localId}`,
+        `https://lab-5-on-the-fly-api.vercel.app/api/chats/user/${loginUser.localId}`,
       );
       getChat(newChats.data);
       return;
@@ -45,15 +45,15 @@ export default function UserSearchCard({ user, getChat }) {
   return (
     <div
       onClick={() => updateChat()}
-      className="w-6/7 m-2 flex cursor-pointer bg-slate-300 p-1 rounded-lg hover:opacity-60"
+      className="flex p-1 m-2 rounded-lg cursor-pointer w-6/7 bg-slate-300 hover:opacity-60"
     >
       <div className={`mx-1`}>
         <div className="flex">
           <div className="text-xs ">{user.name}</div>
         </div>
-        <div className="text-xs flex">
+        <div className="flex text-xs">
           {" "}
-          <div className="font-bold text-xs mr-1">Email:</div>
+          <div className="mr-1 text-xs font-bold">Email:</div>
           {user.email}
         </div>
       </div>
