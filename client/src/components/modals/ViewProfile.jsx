@@ -2,7 +2,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 
-import Modal from "./Modal";
+import Modal from "./AuthModal";
 
 import useViewProfileModal from "../../hooks/useViewProfileModal";
 import { useAuth } from "../../auth/AuthState";

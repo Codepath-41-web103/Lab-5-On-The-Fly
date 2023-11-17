@@ -1,11 +1,59 @@
-import { useEffect, useRef } from "react";
-
+import { useEffect, useRef, useState } from "react";
+import { HiDotsVertical } from "react-icons/hi";
 import Message from "./Message";
+import { FaRegTrashAlt } from "react-icons/fa";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
+import { db } from "../../../../auth/Firebase";
+import toast from "react-hot-toast";
 
 function Messages({ messages, loginUser, scroll, setScroll }) {
   const dummy = useRef();
   const shouldScroll = () => {
     dummy.current.scrollIntoView({ behavior: "smooth" });
+  };
+  const [docID, setDocID] = useState("");
+
+  const messageCardRef = collection(db, "messages");
+
+  const getDocName = async (m) => {
+    const q = query(messageCardRef, where("createdAt", "==", m.createdAt));
+
+    try {
+      let docID = "";
+      const querySnapshot = await getDocs(q);
+
+      querySnapshot.forEach((doc) => {
+        const documentID = doc.id;
+        docID = documentID;
+        setDocID(documentID);
+      });
+      handleDelete(docID);
+    } catch (error) {
+      console.error("Error querying documents: ", error);
+    }
+  };
+
+  const handleDelete = (ID) => {
+    if (ID) {
+      const messageRef = doc(db, "messages", ID);
+      deleteDoc(messageRef)
+        .then(() => {
+          toast.success("Successfully deleted");
+        })
+        .catch(() => {
+          toast.error("Error deleting");
+        });
+    } else {
+      // Handle when docID is empty or null
+      console.error("Invalid docID");
+    }
   };
 
   useEffect(() => {
@@ -31,6 +79,13 @@ function Messages({ messages, loginUser, scroll, setScroll }) {
                   className="rounded-full w-8 h-8 mt-1"
                   src={message.sender.photoUrl}
                 />
+              </div>
+
+              <div
+                onClick={() => getDocName(message)}
+                className="cursor-pointer"
+              >
+                <FaRegTrashAlt size={10} />
               </div>
             </div>
           ) : (
