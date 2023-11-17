@@ -18,13 +18,14 @@ export const useAuthMethods = (user, signupModal) => {
     if (user) {
       signupModal.onClose();
       loginModal.onClose();
+      console.log("the user photoURL", user.photoUrl);
       // This is unnecessary, but I'm leaving it here for now
       createUser({
         name: user.displayName || user.email.split("@")[0],
         email: user.email,
-        avatar_url:
-          user.photoUrl ||
-          "https://tse1.mm.bing.net/th?id=OIP.Ghae4OEdb4UmC3hkqpFvLAHaGd&pid=Api&rs=1&c=1&qlt=95&w=132&h=115",
+        avatar_url: user.photoUrl
+          ? user.photoUrl
+          : "https://tse1.mm.bing.net/th?id=OIP.Ghae4OEdb4UmC3hkqpFvLAHaGd&pid=Api&rs=1&c=1&qlt=95&w=132&h=115",
         bio: "",
         id: user.localId,
       });
