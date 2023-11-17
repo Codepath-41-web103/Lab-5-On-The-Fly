@@ -60,10 +60,7 @@ const NavBar = () => {
       </Menu>
       <Menu className={`flex items-center justify-center`}>
         <li className={`flex items-center justify-center`}>
-          <Button
-            href={`/dashboard`}
-            className={``}
-          >
+          <Button className={``}>
             <HiViewGrid size={20} />
           </Button>
         </li>
