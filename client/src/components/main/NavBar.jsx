@@ -67,35 +67,9 @@ const NavBar = () => {
             <HiViewGrid size={20} />
           </Button>
         </li>
-        {user ? (
-          <>
-            <li>
-              <Button
-                onClick={() => {
-                  handleLogOut();
-                }}
-                className="font-bold text-white cursor-pointer hover:underline"
-              >
-                {" "}
-                Logout
-              </Button>
-            </li>
-            <li>
-              <UserProfile />
-            </li>
-          </>
-        ) : (
-          <li>
-            <Button
-              className="font-bold text-white cursor-pointer hover:underline"
-              onClick={() => {
-                signupModal.onOpen();
-              }}
-            >
-              Signup
-            </Button>
-          </li>
-        )}
+        <li>
+          <UserProfile />
+        </li>
       </Menu>
     </Nav>
   );

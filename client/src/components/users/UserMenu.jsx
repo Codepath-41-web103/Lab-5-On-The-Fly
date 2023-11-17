@@ -7,6 +7,7 @@ import { AiOutlineUser } from "react-icons/ai";
 import { FiEye, FiLogOut, FiSettings } from "react-icons/fi";
 import { useAuth } from "../../auth/AuthState";
 
+
 function UserMenu({}) {
   const loginUser = useAuth();
   // ! NEED TO REFACTOR THIS const editProfile = useEditProfileModal();
@@ -17,7 +18,7 @@ function UserMenu({}) {
 
   return (
     <MenuList
-      className="justify-center bg-gray-800  text-white rounded-lg"
+      className="justify-center text-white bg-gray-800 rounded-lg"
       boxSize={180}
     >
       {/* MenuItems are not rendered unless Menu is open */}
