@@ -1,11 +1,11 @@
-"use client"
+"use client";
 import React, { useEffect, useState, Fragment } from "react";
 import { FaSearch } from "react-icons/fa";
 import SearchQuery from "../SearchQuery.jsx";
 import { Form, Input } from "../../../semantics/index.js";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 import { Button } from "../../../semantics/index.js";
-import './UserSearch.scss'
+import "./UserSearch.scss";
 
 function UserSearch({ getChat }) {
   const [hide, setHide] = useState(true);
@@ -38,7 +38,7 @@ function UserSearch({ getChat }) {
       <Form className="flex items-center justify-between w-full bg-gray-300 rounded-lg h-fit">
         <Input
           onChange={(e) => handleOnChange(e)}
-          className="w-[80%] h-full text-sm bg-transparent border-none rounded-lg focus:outline-none focus:ring-0 mb-0 p-0"
+          className="w-[80%] h-full text-sm bg-transparent border-none rounded-lg focus:outline-none focus:ring-0 mb-0 p-0 text-black"
           placeholder="Search for Users"
           type="text"
         />
@@ -65,6 +65,6 @@ function UserSearch({ getChat }) {
 
 UserSearch.propTypes = {
   getChat: PropTypes.func.isRequired,
-}
+};
 
 export default UserSearch;
