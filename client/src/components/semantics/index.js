@@ -8,5 +8,9 @@ const Article = lazy(() => import('./Article'));
 const Menu = lazy(() => import('./Menu'));
 const Picture = lazy(() => import('./Picture'));
 const Details = lazy(() => import('./Details'));
+const Form = lazy(() => import('./Form'));
+const Input = lazy(() => import('./Input'));
+const Button = lazy(() => import('./Button'));
 
-export { Nav, Footer, Header, Main, Section, Article, Menu, Picture, Details };
+
+export { Nav, Footer, Header, Main, Section, Article, Menu, Picture, Details, Form, Input, Button };

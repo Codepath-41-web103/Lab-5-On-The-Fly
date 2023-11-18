@@ -1,6 +1,11 @@
-import React, { useEffect, useState } from "react";
+"use client"
+import React, { useEffect, useState, Fragment } from "react";
 import { FaSearch } from "react-icons/fa";
 import SearchQuery from "../SearchQuery.jsx";
+import { Form, Input } from "../../../semantics/index.js";
+import PropTypes from 'prop-types'
+import { Button } from "../../../semantics/index.js";
+import './UserSearch.scss'
 
 function UserSearch({ getChat }) {
   const [hide, setHide] = useState(true);
@@ -25,26 +30,25 @@ function UserSearch({ getChat }) {
   const handleOnChange = (event) => {
     setQuery(event.target.value);
     setTyping(true);
+    isTyping(true);
   };
 
   return (
-    <div className="z-50">
-      <div className="bg-gray-300 rounded-lg grid grid-cols-10 w-full">
-        <input
+    <Fragment>
+      <Form className="flex items-center justify-between w-full bg-gray-300 rounded-lg h-fit">
+        <Input
           onChange={(e) => handleOnChange(e)}
-          className="rounded-lg bg-gray-300 col-span-8 outline-blue-500 p-1"
+          className="w-[80%] h-full text-sm bg-transparent border-none rounded-lg focus:outline-none focus:ring-0 mb-0 p-0"
           placeholder="Search for Users"
+          type="text"
         />
-
-        <div className="  col-span-2 border-l border-white flex justify-center items-center cursor-pointer hover:opacity-60">
-          <FaSearch />
-        </div>
-      </div>
-      <div className="px-5">
+        <Button className="w-[20%] h-full m-0 p-[1rem] bg-blue-400">
+          <FaSearch className="flex items-center justify-center w-full cursor-pointer hover:opacity-60" />
+        </Button>
         {typing ? (
-          <div className="absolute">Loading</div>
+          <div className="absolute px-5">Loading</div>
         ) : (
-          <div className="w-45">
+          <div className="px-5 w-45">
             {" "}
             <SearchQuery
               query={apiQuery}
@@ -54,8 +58,13 @@ function UserSearch({ getChat }) {
             />
           </div>
         )}
-      </div>
-    </div>
+      </Form>
+    </Fragment>
   );
 }
+
+UserSearch.propTypes = {
+  getChat: PropTypes.func.isRequired,
+}
+
 export default UserSearch;

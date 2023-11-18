@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../../../auth/AuthState";
 import toast from "react-hot-toast";
+import PropTypes from "prop-types";
 
-export default function UserSearchCard({ user, getChat }) {
+export default function UserSearchCard({ user, getCha }) {
   const [roomID, setRoomID] = useState("");
   const loginUser = useAuth();
-
   const updateChat = async () => {
     try {
       console.log("Doing first API", {
@@ -60,20 +60,29 @@ export default function UserSearchCard({ user, getChat }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loginUser]);
   return (
-    <div
-      onClick={() => updateChat()}
-      className="flex p-1 m-2 rounded-lg cursor-pointer w-6/7 bg-slate-300 hover:opacity-60"
-    >
-      <div className={`mx-1`}>
-        <div className="flex">
-          <div className="text-xs ">{user.name}</div>
-        </div>
-        <div className="flex text-xs">
-          {" "}
-          <div className="mr-1 text-xs font-bold">Email:</div>
-          {user.email}
+    <Fragment>
+      <div
+        id="user-search-card"
+        onClick={() => updateChat()}
+        className="flex p-1 m-2 rounded-lg cursor-pointer w-6/7 bg-slate-300 hover:opacity-60"
+      >
+        <div className={`mx-1`}>
+          <div className="flex">
+            <div className="text-xs ">{user.name}</div>
+          </div>
+          <div className="flex text-xs">
+            {" "}
+            <div className="mr-1 text-xs font-bold">Email:</div>
+            {user.email}
+          </div>
         </div>
       </div>
-    </div>
+    </Fragment>
   );
 }
+
+UserSearchCard.propTypes = {
+  user: PropTypes.object,
+  getChat: PropTypes.func,
+  isTyping: PropTypes.bool,
+};

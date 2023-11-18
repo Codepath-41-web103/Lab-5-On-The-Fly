@@ -46,7 +46,7 @@ function ChatsCard({ user, setSelected, selected, setHide, setShowCurrent }) {
     >
       {userInfo && (
         <img
-          className="rounded-full w-8 h-8"
+          className="w-8 h-8 rounded-full"
           src={
             userInfo.avatar_url ||
             "https://tse1.mm.bing.net/th?id=OIP.Ghae4OEdb4UmC3hkqpFvLAHaGd&pid=Api&rs=1&c=1&qlt=95&w=132&h=115"
@@ -55,12 +55,11 @@ function ChatsCard({ user, setSelected, selected, setHide, setShowCurrent }) {
       )}
 
       <div className={`mx-1`}>
-        <div className="flex  ">
-          <div className="text-xs  font-semibold">{user.recepient_name}</div>
+        <div className="flex ">
+          <div className="text-xs font-bold">{user.recepient_name}</div>
         </div>
-        <div className="text-xs flex flex-wrap  ">
+        <div className="flex flex-wrap text-xs ">
           {" "}
-          <div className=" font-semibold text-xs mr-1 ">Email:</div>
           {user.recepient_email}
         </div>
       </div>

@@ -47,12 +47,12 @@ const NavBar = () => {
     <Nav
       className={`flex flex-row justify-between items-center h-[70px] w-[100dvw] sticky top-0 text-lg font-bold m-0 px-[1rem] z-30`}
     >
-      <Menu className={`flex flex-row mt-5`}>
+      <Menu className={`flex flex-row mt-5 items-center`}>
         <li
           onClick={() => {
             window.location.href = "/";
           }}
-          className="flex "
+          className="flex items-center justify-center p-0 cursor-pointer"
         >
           <img src="/images/Chatat.png" alt="logo" width={100} height={100} />
           <span>Chatat</span>

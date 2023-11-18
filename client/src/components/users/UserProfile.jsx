@@ -35,16 +35,28 @@ export default function UserProfile({}) {
   // console.log("the user info", userInfo);
   // console.log(userInfo.avatar_url);
   return (
+    <>
     <div className="z-40 flex items-center justify-center">
-      {userInfo?.avatar_url ? (
-        <div className="mx-1 ">
+      {userInfo ? (
+        <div className="flex items-center mx-1">
           <Menu isLazy>
             <MenuButton>
-              <img className="rounded-full w-9 h-9" src={userInfo.avatar_url} />
+              <img
+                className="rounded-full w-9 h-9"
+                src={
+                  userInfo.avatar_url ||
+                  "https://tse1.mm.bing.net/th?id=OIP.Ghae4OEdb4UmC3hkqpFvLAHaGd&pid=Api&rs=1&c=1&qlt=95&w=132&h=115"
+                }
+              />
             </MenuButton>
             <UserMenu />
           </Menu>
         </div>
+      ) : (
+        <div onClick={() => OpenModal()}>
+          <AiOutlineUser size={26} />
+        </div>
+      )}
       </div>
     </>
   );

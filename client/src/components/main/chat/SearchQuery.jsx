@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import UserSearchCard from "./user/UserSearchCard";
 import axios from "axios";
 import { AiOutlineClose } from "react-icons/ai";
-
+import classNames from "classnames";
 function SearchQuery({ query, hide, getChat, setHide }) {
   const [results, setResults] = useState([]);
   const getResults = async () => {
@@ -25,15 +25,21 @@ function SearchQuery({ query, hide, getChat, setHide }) {
       <div
         onClick={() => setHide(true)}
         className={`float-right cursor-pointer hover:opacity-60 text-red-600 absolute left-[0.7rem]  ${
-          hide ? "hidden" : "block"
-        } mt-2`}
+        classNames({
+            "hidden": hide,
+            "block": !hide,
+        })}
+        mt-2`}
       >
         <AiOutlineClose size={20} />
       </div>
       <div
-        className={`rounded-lg absolute bg-gray-950   ${
-          hide ? "hidden" : "block"
-        } overflow-y-scroll h-40`}
+        className={`rounded-lg absolute bg-gray-950 ${
+        classNames({
+          "hidden": hide,
+          "block": !hide,
+        })}
+        overflow-y-scroll h-40`}
       >
         {results.map((u) => (
           <UserSearchCard user={u} key={u.id} getChat={getChat} />
