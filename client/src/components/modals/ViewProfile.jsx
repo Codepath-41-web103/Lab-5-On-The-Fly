@@ -22,8 +22,7 @@ function ViewProfileModal({}) {
       `https://lab-5-on-the-fly-api.vercel.app/api/users/${loginUser.localId}`,
     );
     const user = result.data[0];
-    console.log("the user info", user);
-    console.log("localID", loginUser.localId);
+
     setUserInfo(user);
     setPhotoUrl(user.avatar_url);
     setName(user.name);

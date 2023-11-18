@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import axios from "axios";
 import { useAuth } from "../../../../auth/AuthState";
 import toast from "react-hot-toast";
@@ -9,16 +9,6 @@ export default function UserSearchCard({ user, getCha }) {
   const loginUser = useAuth();
   const updateChat = async () => {
     try {
-      console.log("Doing first API", {
-        sender_id: loginUser.localId,
-        recepient_id: user.id,
-        chat_id: roomID,
-        recepient_name: user.name,
-        recepient_email: user.email,
-        recepient_avatar_url:
-          user.avatar_url ||
-          "https://tse1.mm.bing.net/th?id=OIP.Ghae4OEdb4UmC3hkqpFvLAHaGd&pid=Api&rs=1&c=1&qlt=95&w=132&h=115",
-      });
       await axios.post(`https://lab-5-on-the-fly-api.vercel.app/api/chats`, {
         sender_id: loginUser.localId,
         recepient_id: user.id,
@@ -29,7 +19,7 @@ export default function UserSearchCard({ user, getCha }) {
           user.avatar_url ||
           "https://tse1.mm.bing.net/th?id=OIP.Ghae4OEdb4UmC3hkqpFvLAHaGd&pid=Api&rs=1&c=1&qlt=95&w=132&h=115",
       });
-      console.log("Doing second API");
+
       await axios.post(`https://lab-5-on-the-fly-api.vercel.app/api/chats`, {
         sender_id: user.id,
         recepient_id: loginUser.localId,
@@ -38,7 +28,6 @@ export default function UserSearchCard({ user, getCha }) {
         recepient_email: loginUser.email,
         recepient_avatar_url: loginUser.photoUrl || null,
       });
-      console.log("Doing third API");
 
       const newChats = await axios.get(
         `https://lab-5-on-the-fly-api.vercel.app/api/chats/user/${loginUser.localId}`,
@@ -84,5 +73,4 @@ export default function UserSearchCard({ user, getCha }) {
 UserSearchCard.propTypes = {
   user: PropTypes.object,
   getChat: PropTypes.func,
-  isTyping: PropTypes.bool,
 };

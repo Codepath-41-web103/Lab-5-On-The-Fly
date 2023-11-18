@@ -18,14 +18,12 @@ function ChatsCard({ user, setSelected, selected, setHide, setShowCurrent }) {
   };
 
   const handleUserInfo = async () => {
-    console.log("the user id", user);
     const result = await axios.get(
       `https://lab-5-on-the-fly-api.vercel.app/api/users/${user.recepient_id}`,
     );
 
-    console.log("the result", result);
     user = result.data[0];
-    console.log("the chat", user);
+
     setUserInfo(user);
   };
 
@@ -58,10 +56,7 @@ function ChatsCard({ user, setSelected, selected, setHide, setShowCurrent }) {
         <div className="flex ">
           <div className="text-xs font-bold">{user.recepient_name}</div>
         </div>
-        <div className="flex flex-wrap text-xs ">
-          {" "}
-          {user.recepient_email}
-        </div>
+        <div className="flex flex-wrap text-xs "> {user.recepient_email}</div>
       </div>
     </div>
   );

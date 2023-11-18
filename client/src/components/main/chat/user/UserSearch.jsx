@@ -28,7 +28,6 @@ function UserSearch({ getChat }) {
   }, [query]);
 
   const handleOnChange = (event) => {
-    console.log("changing query ");
     setQuery(event.target.value);
     setTyping(true);
   };
@@ -36,7 +35,7 @@ function UserSearch({ getChat }) {
   return (
     <Fragment>
       <Form className="flex items-center justify-between w-full bg-gray-300 rounded-lg h-fit">
-        <Input
+        <input
           onChange={(e) => handleOnChange(e)}
           className="w-[80%] h-full text-sm bg-transparent border-none rounded-lg focus:outline-none focus:ring-0 mb-0 p-0 text-black"
           placeholder="Search for Users"
