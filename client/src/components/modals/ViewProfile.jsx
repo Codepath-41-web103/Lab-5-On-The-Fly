@@ -68,7 +68,7 @@ function ViewProfileModal({}) {
         <div className=" justify-center w-full h-full">
           <div className="my-3 flex justify-center">
             <img
-              className="w-15 h-15 rounded-full object-contain"
+              className="w-[7rem] h-[7rem] rounded-full object-contain"
               src={
                 userInfo.avatar_url ||
                 "https://tse1.mm.bing.net/th?id=OIP.Ghae4OEdb4UmC3hkqpFvLAHaGd&pid=Api&rs=1&c=1&qlt=95&w=132&h=115"
