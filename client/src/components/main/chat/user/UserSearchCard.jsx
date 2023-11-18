@@ -84,5 +84,4 @@ export default function UserSearchCard({ user, getCha }) {
 UserSearchCard.propTypes = {
   user: PropTypes.object,
   getChat: PropTypes.func,
-  isTyping: PropTypes.bool,
 };

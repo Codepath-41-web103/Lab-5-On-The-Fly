@@ -30,7 +30,6 @@ function UserSearch({ getChat }) {
   const handleOnChange = (event) => {
     setQuery(event.target.value);
     setTyping(true);
-    isTyping(true);
   };
 
   return (
